@@ -1,0 +1,1540 @@
+<!DOCTYPE html>
+<html lang="ru" class="no-js">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0b2118">
+<meta name="description" content="GREEN DESIGN PINSK — ландшафтный дизайн, 3D-прогулка по будущему саду, озеленение премиум-уровня, освещение и террасы. Пинск и вся Беларусь. +375 (29) 346-89-20">
+<title>GREEN DESIGN PINSK — ландшафтный дизайн и благоустройство участка</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" media="print" onload="this.media='all'" href="https://cdn.jsdelivr.net/npm/@fontsource-variable/manrope/index.css">
+<link rel="stylesheet" media="print" onload="this.media='all'" href="https://cdn.jsdelivr.net/npm/@fontsource-variable/playfair-display/index.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='12' fill='%230b2118'/%3E%3Cpath d='M24 39c0-8.2 4.2-14.6 12-17.4C35.6 30.4 31 36 24 39Z' fill='%2386d17a'/%3E%3Cpath d='M24 39c0-9.4-3.6-16.4-12-19.4C12.2 29 16.8 35.4 24 39Z' fill='%23c6e86b'/%3E%3C/svg%3E">
+<style>
+/* ============ TOKENS ============ */
+:root{
+  --forest:#0b2118; --forest-2:#113124; --moss:#1a4632;
+  --sage:#8fae8a; --leaf:#86d17a; --lime:#c6e86b;
+  --cream:#f6f2e8; --cream-2:#efe9db; --sand:#e2d8c3; --clay:#c8734f;
+  --ink:#101714; --muted:#63736a;
+  --line:rgba(11,33,24,.13); --line-d:rgba(246,242,232,.15);
+  --r-s:10px; --r-m:16px; --r-l:24px;
+  --sh-m:0 18px 44px -22px rgba(11,33,24,.5);
+  --sh-l:0 34px 80px -38px rgba(11,33,24,.6);
+  --ff-body:'Manrope',system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+  --ff-dis:'Playfair Display',Georgia,'Times New Roman',serif;
+  --gut:clamp(16px,4.4vw,28px);
+  --sec-p:clamp(60px,9vw,112px);
+  --safe-b:env(safe-area-inset-bottom,0px);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:88px}
+body{
+  margin:0;background:var(--cream);color:var(--ink);
+  font-family:var(--ff-body);font-size:16px;line-height:1.62;
+  overflow-x:clip;-webkit-tap-highlight-color:transparent;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeSpeed;
+}
+img,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button,input,select,textarea{font:inherit;color:inherit}
+h1,h2,h3,h4,h5{margin:0;line-height:1.13;font-weight:800;letter-spacing:-.025em}
+p{margin:0}
+ul{margin:0;padding:0;list-style:none}
+::selection{background:var(--lime);color:var(--forest)}
+:focus-visible{outline:2.5px solid var(--lime);outline-offset:3px;border-radius:6px}
+
+/* no-JS / noscript safety: everything visible */
+.no-js .rv,.no-js .pf{opacity:1!important;transform:none!important}
+noscript .ns{display:block}
+
+.wrap{width:100%;max-width:1260px;margin-inline:auto;padding-inline:var(--gut)}
+.sec{padding-block:var(--sec-p);position:relative}
+.dark{background:var(--forest);color:var(--cream)}
+
+/* ============ PROGRESS + HEADER ============ */
+#progress{position:fixed;top:0;left:0;height:3px;width:0;z-index:1200;
+  background:linear-gradient(90deg,var(--leaf),var(--lime))}
+header{position:fixed;inset:0 0 auto 0;z-index:1000;padding:12px 0;
+  background:rgba(11,33,24,.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  transition:background .35s,padding .35s,box-shadow .35s}
+header.stuck{background:rgba(8,24,17,.94);padding:8px 0;box-shadow:0 12px 34px -22px #000}
+.nav{display:flex;align-items:center;gap:12px}
+.brand{display:flex;align-items:center;gap:10px;color:var(--cream);min-width:0}
+.brand .mark{width:38px;height:38px;flex-shrink:0}
+.brand .bt{display:flex;flex-direction:column;line-height:1;min-width:0}
+.brand .bt b{font-size:14px;letter-spacing:.1em;font-weight:800;text-transform:uppercase;white-space:nowrap}
+.brand .bt span{font-size:8.5px;letter-spacing:.36em;color:var(--leaf);text-transform:uppercase;margin-top:4px}
+.nav-links{display:none;gap:2px;margin-left:auto;align-items:center}
+.nav-links a{color:rgba(246,242,232,.78);font-size:14px;font-weight:600;padding:9px 13px;border-radius:999px;transition:.25s;white-space:nowrap}
+.nav-links a:hover{color:#fff;background:rgba(246,242,232,.11)}
+.nav-cta{display:flex;align-items:center;gap:10px;margin-left:auto}
+.phone-btn{display:none;align-items:center;gap:8px;color:var(--cream);font-weight:700;font-size:14px;
+  padding:10px 16px;border-radius:999px;border:1px solid rgba(246,242,232,.24);transition:.28s;white-space:nowrap}
+.phone-btn:hover{border-color:var(--lime);color:var(--lime)}
+.burger{width:44px;height:44px;border-radius:12px;border:1px solid rgba(246,242,232,.26);
+  background:transparent;cursor:pointer;position:relative;flex-shrink:0}
+.burger i{position:absolute;left:12px;width:20px;height:2px;background:var(--cream);border-radius:2px;transition:.3s}
+.burger i:nth-child(1){top:16px}.burger i:nth-child(2){top:21px}.burger i:nth-child(3){top:26px}
+.burger.on i:nth-child(1){transform:translateY(5px) rotate(45deg)}
+.burger.on i:nth-child(2){opacity:0}
+.burger.on i:nth-child(3){transform:translateY(-5px) rotate(-45deg)}
+@media(min-width:1000px){
+  .nav-links{display:flex}.phone-btn{display:flex}.burger{display:none}
+  .nav-cta{margin-left:14px}
+}
+
+/* ============ DRAWER ============ */
+.drawer{position:fixed;inset:0;z-index:999;background:rgba(6,20,14,.98);backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);display:flex;flex-direction:column;justify-content:center;
+  padding:calc(70px + env(safe-area-inset-top)) var(--gut) calc(30px + var(--safe-b));
+  transform:translateX(100%);transition:transform .5s cubic-bezier(.7,0,.2,1);visibility:hidden;overflow-y:auto}
+.drawer.on{transform:none;visibility:visible}
+.drawer a.dl{font-size:clamp(24px,7.4vw,38px);font-weight:800;color:var(--cream);padding:12px 0;
+  letter-spacing:-.03em;border-bottom:1px solid var(--line-d);opacity:0;transform:translateY(20px);transition:.45s}
+.drawer.on a.dl{opacity:1;transform:none}
+.drawer .dp{margin-top:28px;color:var(--lime);font-size:clamp(19px,5vw,24px);font-weight:800}
+.drawer .ds{margin-top:8px;color:rgba(246,242,232,.55);font-size:14px}
+
+/* ============ BUTTONS ============ */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:50px;
+  padding:14px 26px;border-radius:999px;font-weight:800;font-size:15px;cursor:pointer;border:none;
+  transition:transform .28s,box-shadow .28s,background .28s,color .28s,border-color .28s;letter-spacing:-.01em;text-align:center}
+.btn-p{background:linear-gradient(120deg,var(--leaf),var(--lime));color:#08240f;box-shadow:0 14px 30px -16px rgba(134,209,122,.8)}
+.btn-p:hover{transform:translateY(-3px);box-shadow:0 20px 40px -16px rgba(134,209,122,.9)}
+.btn-g{background:transparent;color:var(--cream);border:1.5px solid rgba(246,242,232,.38)}
+.btn-g:hover{border-color:var(--cream);background:rgba(246,242,232,.1);transform:translateY(-3px)}
+.btn-d{background:var(--forest);color:var(--cream)}
+.btn-d:hover{background:var(--moss);transform:translateY(-3px);box-shadow:var(--sh-m)}
+.btn-sm{min-height:44px;padding:11px 20px;font-size:14px}
+.btn:active{transform:translateY(0) scale(.985)}
+
+/* ============ HERO ============ */
+#hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;overflow:hidden;
+  padding:calc(96px + env(safe-area-inset-top)) 0 calc(28px + var(--safe-b));
+  background:linear-gradient(178deg,#061a11 0%,#0d2b1d 44%,#14402a 100%);color:var(--cream)}
+.hero-art{position:absolute;inset:0;z-index:0;pointer-events:none}
+.hero-art svg{width:100%;height:100%}
+.hero-art::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(6,20,14,.72) 0%,rgba(6,20,14,.18) 34%,rgba(6,20,14,.55) 78%,rgba(6,20,14,.92) 100%)}
+.lyr{transition:transform .55s cubic-bezier(.2,.8,.3,1);will-change:transform}
+#hero .wrap{position:relative;z-index:3;width:100%}
+.hero-grid{display:grid;grid-template-columns:1fr;gap:clamp(28px,5vw,56px);align-items:center}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:11px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--leaf);font-weight:800;margin-bottom:20px;line-height:1.4}
+.eyebrow::before{content:"";width:30px;height:1px;background:var(--leaf);flex-shrink:0}
+.hero h1{font-size:clamp(34px,8.6vw,74px);font-weight:800;letter-spacing:-.04em;line-height:1.03}
+.hero h1 em{font-family:var(--ff-dis);font-style:italic;font-weight:400;color:var(--lime);letter-spacing:-.01em}
+.hero-sub{margin-top:20px;font-size:clamp(15px,2.5vw,18.5px);color:rgba(246,242,232,.8);
+  max-width:54ch;line-height:1.6}
+.hero-acts{display:flex;gap:12px;margin-top:28px;flex-wrap:wrap}
+.hero-acts .btn{flex:1 1 220px}
+.hero-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:18px 22px;margin-top:38px;
+  padding-top:26px;border-top:1px solid var(--line-d)}
+.hero-stats .st b{display:block;font-size:clamp(24px,6.4vw,36px);font-weight:800;letter-spacing:-.035em}
+.hero-stats .st span{font-size:12px;color:rgba(246,242,232,.58);line-height:1.4;display:block;margin-top:3px}
+.hero-card{background:rgba(8,26,18,.56);border:1px solid rgba(246,242,232,.15);border-radius:var(--r-l);
+  padding:16px;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:var(--sh-l)}
+.hero-card .hd{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.hero-card .dot{width:9px;height:9px;border-radius:50%;background:var(--lime);flex-shrink:0;
+  box-shadow:0 0 0 4px rgba(198,232,107,.2);animation:pulse 2.6s infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 4px rgba(198,232,107,.2)}50%{box-shadow:0 0 0 10px rgba(198,232,107,.03)}}
+.hero-card .hd p{font-size:10.5px;letter-spacing:.15em;text-transform:uppercase;color:rgba(246,242,232,.62);font-weight:800}
+.hero-shot{border-radius:16px;overflow:hidden;position:relative;aspect-ratio:4/3;
+  background:linear-gradient(160deg,#7fb2d6,#4d7f5a 55%,#2f6b40)}
+.hero-shot>svg{width:100%;height:100%;position:absolute;inset:0}
+.hero-mini{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}
+.hero-mini>div{border-radius:11px;overflow:hidden;aspect-ratio:1;border:1px solid rgba(246,242,232,.12);
+  background:linear-gradient(160deg,#5f8f6a,#26463a);cursor:pointer;position:relative;transition:transform .3s}
+.hero-mini>div:hover{transform:translateY(-3px)}
+.hero-mini>div>svg{width:100%;height:100%;position:absolute;inset:0}
+.scroll-hint{display:none}
+@media(min-width:900px){
+  #hero{align-items:center;padding-top:calc(130px + env(safe-area-inset-top));padding-bottom:60px}
+  .hero-grid{grid-template-columns:minmax(0,1.04fr) minmax(0,.96fr)}
+  .hero-acts .btn{flex:0 0 auto}
+  .hero-stats{grid-template-columns:repeat(4,auto);gap:34px;justify-content:start}
+  .hero-card{padding:24px}
+  .scroll-hint{display:flex;position:absolute;bottom:24px;left:50%;transform:translateX(-50%);z-index:5;
+    flex-direction:column;align-items:center;gap:8px;color:rgba(246,242,232,.5);
+    font-size:10px;letter-spacing:.22em;text-transform:uppercase}
+  .scroll-hint .bar{width:1px;height:42px;background:linear-gradient(180deg,transparent,var(--leaf));position:relative;overflow:hidden}
+  .scroll-hint .bar::after{content:"";position:absolute;top:-20px;left:0;width:1px;height:20px;background:var(--lime);animation:slide 2.4s infinite}
+  @keyframes slide{0%{top:-20px}100%{top:44px}}
+}
+.leaf{position:absolute;z-index:2;pointer-events:none;color:var(--leaf);opacity:0}
+@keyframes drift{0%{transform:translate3d(0,-12vh,0) rotate(0);opacity:0}12%{opacity:.5}88%{opacity:.3}
+  100%{transform:translate3d(var(--dx,50px),104vh,0) rotate(400deg);opacity:0}}
+
+/* ============ TICKER ============ */
+.ticker{background:var(--lime);color:#08240f;padding:13px 0;overflow:hidden;position:relative;z-index:6}
+.ticker-track{display:flex;width:max-content;animation:marq 40s linear infinite}
+.ticker:hover .ticker-track,.ticker:focus-within .ticker-track{animation-play-state:paused}
+@keyframes marq{to{transform:translateX(-50%)}}
+.ticker-track span{display:inline-flex;align-items:center;gap:22px;padding-inline:22px;
+  font-weight:800;font-size:12px;letter-spacing:.13em;text-transform:uppercase;white-space:nowrap}
+.ticker-track span::after{content:"";width:6px;height:6px;background:#08240f;border-radius:50%}
+@media(min-width:700px){.ticker-track span{font-size:13.5px;gap:26px;padding-inline:26px}}
+
+/* ============ SECTION HEADS ============ */
+.sec-h{max-width:730px;margin-bottom:clamp(30px,5vw,56px)}
+.sec-h.center{margin-inline:auto;text-align:center}
+.sec-h.center .eyebrow{justify-content:center}
+.sec-h.center .eyebrow::before{display:none}
+.sec-h .eyebrow{color:var(--clay)}
+.sec-h h2{font-size:clamp(27px,6.4vw,52px)}
+.sec-h h2 em{font-family:var(--ff-dis);font-style:italic;font-weight:400;color:var(--moss)}
+.sec-h p{margin-top:16px;color:var(--muted);font-size:clamp(14.5px,2.3vw,16.5px)}
+.dark .sec-h .eyebrow{color:var(--leaf)}
+.dark .sec-h h2 em{color:var(--lime)}
+.dark .sec-h p{color:rgba(246,242,232,.64)}
+
+/* ============ SERVICES ============ */
+.svc-grid{display:grid;grid-template-columns:1fr;gap:16px}
+@media(min-width:620px){.svc-grid{grid-template-columns:repeat(2,1fr);gap:18px}}
+@media(min-width:1040px){.svc-grid{grid-template-columns:repeat(3,1fr);gap:22px}}
+.svc{background:#fff;border:1px solid var(--line);border-radius:var(--r-l);padding:28px 24px;
+  position:relative;overflow:hidden;transition:transform .4s cubic-bezier(.2,.8,.3,1),box-shadow .4s,border-color .4s}
+.svc::before{content:"";position:absolute;inset:auto -30% -60% -30%;height:150px;
+  background:radial-gradient(ellipse at center,rgba(134,209,122,.3),transparent 70%);opacity:0;transition:.5s}
+.svc:hover{transform:translateY(-7px);box-shadow:var(--sh-l);border-color:rgba(134,209,122,.55)}
+.svc:hover::before{opacity:1}
+.svc .ico{width:54px;height:54px;border-radius:15px;background:var(--cream-2);display:grid;place-items:center;
+  margin-bottom:20px;color:var(--moss);transition:.4s;position:relative;z-index:1}
+.svc:hover .ico{background:var(--forest);color:var(--lime);transform:rotate(-6deg) scale(1.05)}
+.svc h3{font-size:clamp(18px,3.4vw,20.5px);position:relative;z-index:1}
+.svc>p{margin-top:10px;color:var(--muted);font-size:14.6px;line-height:1.58;position:relative;z-index:1}
+.svc ul{margin:16px 0 0;position:relative;z-index:1}
+.svc ul li{font-size:13.3px;padding:8px 0 8px 19px;position:relative;border-top:1px dashed var(--line);line-height:1.45}
+.svc ul li::before{content:"";position:absolute;left:0;top:15px;width:7px;height:7px;border-radius:50%;background:var(--leaf)}
+.svc .num{position:absolute;top:16px;right:20px;font-family:var(--ff-dis);font-size:clamp(34px,7vw,46px);
+  font-style:italic;color:rgba(11,33,24,.075);line-height:1;z-index:0}
+
+/* ============ WHY ============ */
+.split{display:grid;grid-template-columns:1fr;gap:clamp(32px,5vw,64px);align-items:center}
+@media(min-width:940px){.split{grid-template-columns:1fr 1fr;gap:70px}}
+.quote-block{font-family:var(--ff-dis);font-style:italic;font-size:clamp(24px,5.4vw,42px);line-height:1.2;
+  letter-spacing:-.02em;color:var(--cream)}
+.checklist{margin-top:28px}
+.checklist li{display:flex;gap:14px;padding:16px 0;border-bottom:1px solid var(--line-d)}
+.checklist li:first-child{border-top:1px solid var(--line-d)}
+.checklist .ci{width:29px;height:29px;border-radius:50%;background:rgba(198,232,107,.15);color:var(--lime);
+  display:grid;place-items:center;flex-shrink:0;margin-top:2px}
+.checklist b{display:block;font-size:15.8px;color:var(--cream);font-weight:800;line-height:1.35}
+.checklist span span{font-size:14px;color:rgba(246,242,232,.6);line-height:1.55;display:block;margin-top:4px}
+.budget-card{background:linear-gradient(150deg,#14382a,#0b2118);border:1px solid var(--line-d);
+  border-radius:var(--r-l);padding:clamp(22px,4vw,38px);box-shadow:var(--sh-l);position:relative;overflow:hidden}
+.budget-card::after{content:"";position:absolute;width:280px;height:280px;border-radius:50%;
+  background:radial-gradient(circle,rgba(134,209,122,.22),transparent 68%);top:-100px;right:-100px;pointer-events:none}
+.bc-row{display:flex;justify-content:space-between;align-items:baseline;gap:14px;padding:14px 0;
+  border-bottom:1px dashed rgba(246,242,232,.17);position:relative;z-index:1;flex-wrap:wrap}
+.bc-row .lbl{font-size:13px;color:rgba(246,242,232,.58);flex:1 1 160px}
+.bc-row .val{font-size:clamp(17px,3.4vw,21px);font-weight:800;color:var(--lime);letter-spacing:-.02em;white-space:nowrap}
+.bc-total{margin-top:22px;background:rgba(198,232,107,.1);border:1px solid rgba(198,232,107,.3);
+  border-radius:16px;padding:20px;position:relative;z-index:1}
+.bc-total .lbl{font-size:11px;text-transform:uppercase;letter-spacing:.16em;color:rgba(246,242,232,.62);font-weight:700}
+.bc-total .val{font-size:clamp(26px,6.6vw,36px);font-weight:800;color:#fff;margin-top:5px;letter-spacing:-.035em}
+.bc-total p{font-size:12.8px;color:rgba(246,242,232,.55);margin-top:10px;line-height:1.5}
+
+/* ============ PORTFOLIO ============ */
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:26px;
+  overflow-x:auto;padding-bottom:6px;scrollbar-width:none;-ms-overflow-style:none}
+.filters::-webkit-scrollbar{display:none}
+@media(max-width:639px){.filters{flex-wrap:nowrap}}
+.filters button{padding:10px 18px;border-radius:999px;border:1px solid var(--line-d);background:transparent;
+  color:rgba(246,242,232,.72);font-size:13px;font-weight:700;cursor:pointer;transition:.25s;white-space:nowrap;flex-shrink:0}
+.filters button:hover{border-color:var(--leaf);color:#fff}
+.filters button.on{background:var(--lime);border-color:var(--lime);color:#08240f}
+.pf-grid{display:grid;grid-template-columns:1fr;gap:16px}
+@media(min-width:520px){.pf-grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:900px){.pf-grid{grid-template-columns:repeat(3,1fr);gap:18px}}
+@media(min-width:1180px){.pf-grid{grid-template-columns:repeat(4,1fr);gap:20px}}
+.pf{border-radius:var(--r-m);overflow:hidden;position:relative;aspect-ratio:4/5;cursor:pointer;
+  border:1px solid var(--line-d);transition:transform .45s cubic-bezier(.2,.8,.3,1),box-shadow .45s;
+  background:linear-gradient(160deg,#2d5b45,#0d2a1d)}
+.pf:hover{transform:translateY(-7px);box-shadow:var(--sh-l)}
+.pf.hide{display:none}
+.pf .art{position:absolute;inset:0;transition:transform .8s cubic-bezier(.2,.8,.3,1)}
+.pf:hover .art{transform:scale(1.07)}
+.pf .art>svg{width:100%;height:100%;position:absolute;inset:0}
+.pf .ov{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;justify-content:flex-end;padding:18px;
+  background:linear-gradient(180deg,rgba(6,20,13,0) 34%,rgba(6,20,13,.9))}
+.pf .cat{font-size:9.8px;letter-spacing:.19em;text-transform:uppercase;color:var(--lime);font-weight:800;margin-bottom:7px}
+.pf h4{font-size:clamp(15.5px,3.2vw,17.5px);color:#fff;line-height:1.2}
+.pf .meta{font-size:12.4px;color:rgba(255,255,255,.62);margin-top:6px;display:flex;align-items:center;gap:6px}
+.pf .arw{position:absolute;top:14px;right:14px;width:36px;height:36px;border-radius:50%;z-index:3;
+  background:rgba(255,255,255,.14);backdrop-filter:blur(6px);display:grid;place-items:center;color:#fff;
+  border:1px solid rgba(255,255,255,.22);transform:scale(.7) rotate(-45deg);opacity:0;transition:.35s}
+.pf:hover .arw{transform:none;opacity:1}
+@media(hover:none){.pf .arw{opacity:1;transform:none}}
+
+/* ============ PROCESS ============ */
+.steps{display:grid;grid-template-columns:1fr;border-top:1px solid var(--line)}
+@media(min-width:640px){.steps{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1000px){.steps{grid-template-columns:repeat(3,1fr)}}
+.step{padding:30px 22px 30px 0;border-bottom:1px solid var(--line);position:relative;transition:padding .35s}
+.step h3{font-size:clamp(18px,3.4vw,21px);margin-top:12px;transition:color .3s}
+.step p{margin-top:10px;color:var(--muted);font-size:14.4px;line-height:1.58}
+.step .sn{font-family:var(--ff-dis);font-style:italic;font-size:15px;color:var(--clay)}
+.step .dur{display:inline-flex;align-items:center;gap:7px;margin-top:16px;font-size:11.6px;font-weight:800;
+  color:var(--moss);background:rgba(134,209,122,.18);padding:6px 13px;border-radius:999px}
+.step::after{content:"";position:absolute;left:0;bottom:-1px;width:0;height:2px;background:var(--leaf);transition:.5s}
+.step:hover::after{width:100%}
+.step:hover h3{color:var(--moss)}
+@media(min-width:640px){
+  .step{padding-inline:22px}
+  .step:nth-child(2n){border-left:1px solid var(--line)}
+}
+@media(min-width:1000px){
+  .step{padding:36px 26px}
+  .step:nth-child(2n){border-left:none}
+  .step:nth-child(3n+2),.step:nth-child(3n){border-left:1px solid var(--line)}
+  .step:nth-child(3n+1){padding-left:0}
+}
+
+/* ============ PRICING ============ */
+.plans{display:grid;grid-template-columns:1fr;gap:18px}
+@media(min-width:760px){.plans{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1040px){.plans{grid-template-columns:repeat(3,1fr);gap:22px}}
+.plan{background:#fff;border-radius:var(--r-l);padding:clamp(26px,4vw,38px) clamp(22px,3.6vw,32px);
+  border:1px solid var(--line);display:flex;flex-direction:column;position:relative;overflow:hidden;
+  transition:transform .4s,box-shadow .4s}
+.plan:hover{transform:translateY(-7px);box-shadow:var(--sh-l)}
+.plan.hot{background:var(--forest);color:var(--cream);border-color:var(--forest)}
+.plan.hot .pl-name{color:rgba(246,242,232,.7)}
+.plan.hot .pl-price{color:var(--lime)}
+.plan.hot .pl-list li{color:rgba(246,242,232,.85);border-color:var(--line-d)}
+.plan.hot .pl-note{color:rgba(246,242,232,.56)}
+.badge{position:absolute;top:18px;right:-36px;transform:rotate(38deg);background:var(--clay);color:#fff;
+  font-size:10px;font-weight:800;letter-spacing:.15em;padding:6px 42px;text-transform:uppercase}
+.pl-name{font-size:12px;letter-spacing:.19em;text-transform:uppercase;color:var(--muted);font-weight:800}
+.pl-price{font-size:clamp(30px,7vw,44px);font-weight:800;letter-spacing:-.04em;margin-top:14px;color:var(--forest)}
+.pl-price small{font-size:13.5px;font-weight:700;letter-spacing:0;opacity:.6;white-space:nowrap}
+.pl-note{font-size:13.2px;color:var(--muted);margin-top:8px}
+.pl-list{margin:24px 0 26px;flex:1}
+.pl-list li{font-size:14.1px;padding:10px 0 10px 26px;border-bottom:1px solid var(--line);position:relative;color:#2b3a32;line-height:1.42}
+.pl-list li::before{content:"";position:absolute;left:0;top:13px;width:15px;height:15px;border-radius:50%;
+  background:var(--leaf) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2308240f' stroke-width='3.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E") center/9px no-repeat}
+.pl-list li.no{opacity:.4}
+.pl-list li.no::before{background-color:rgba(108,122,114,.35);
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='3.4' stroke-linecap='round'%3E%3Cpath d='M18 6 6 18M6 6l12 12'/%3E%3C/svg%3E")}
+.plan .btn{width:100%}
+
+/* ============ REVIEWS ============ */
+.rev-wrap{position:relative;overflow:hidden;touch-action:pan-y}
+.rev-track{display:flex;transition:transform .65s cubic-bezier(.2,.8,.3,1)}
+.rev{min-width:100%;padding:4px}
+.rev-in{background:rgba(246,242,232,.055);border:1px solid var(--line-d);border-radius:var(--r-l);
+  padding:clamp(24px,4vw,46px);display:grid;grid-template-columns:1fr;gap:22px;align-items:center}
+@media(min-width:700px){.rev-in{grid-template-columns:auto 1fr;gap:34px}}
+.rev-av{width:76px;height:76px;border-radius:50%;display:grid;place-items:center;font-family:var(--ff-dis);
+  font-size:30px;color:#08240f;background:linear-gradient(140deg,var(--leaf),var(--lime));flex-shrink:0}
+.rev-txt{font-size:clamp(16px,2.7vw,21px);line-height:1.52;color:rgba(246,242,232,.93);letter-spacing:-.015em}
+.rev-who{margin-top:20px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.rev-who b{color:#fff;font-size:14.8px}
+.rev-who span{color:rgba(246,242,232,.5);font-size:13px}
+.stars{display:flex;gap:2px;color:var(--lime);margin-left:auto}
+.rev-nav{display:flex;align-items:center;gap:10px;margin-top:26px}
+.rev-nav button{width:48px;height:48px;border-radius:50%;border:1px solid var(--line-d);background:transparent;
+  color:var(--cream);cursor:pointer;transition:.25s;display:grid;place-items:center;flex-shrink:0}
+.rev-nav button:hover{background:var(--lime);color:#08240f;border-color:var(--lime)}
+.dots{display:flex;gap:7px;margin-left:auto}
+.dots button{width:9px;height:9px;padding:0;border:none;border-radius:50%;background:rgba(246,242,232,.26);
+  cursor:pointer;transition:.3s}
+.dots button.on{background:var(--lime);width:26px;border-radius:5px}
+
+/* ============ FAQ ============ */
+.faq-wrap{display:grid;grid-template-columns:1fr;gap:clamp(28px,5vw,64px);align-items:start}
+@media(min-width:940px){.faq-wrap{grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr)}}
+.faq{border-top:1px solid var(--line)}
+.q{border-bottom:1px solid var(--line)}
+.q summary{list-style:none;cursor:pointer;padding:20px 46px 20px 0;position:relative;
+  font-size:clamp(15.5px,2.9vw,19px);font-weight:800;letter-spacing:-.02em;transition:color .3s;line-height:1.35}
+.q summary::-webkit-details-marker{display:none}
+.q summary::marker{content:""}
+.q summary:hover{color:var(--moss)}
+.q summary::after,.q summary::before{content:"";position:absolute;right:10px;top:50%;background:var(--clay);transition:.35s}
+.q summary::after{width:13px;height:2px;transform:translateY(-50%)}
+.q summary::before{width:2px;height:13px;transform:translateY(-50%)}
+.q[open] summary{color:var(--moss)}
+.q[open] summary::before{transform:translateY(-50%) scaleY(0)}
+.q .a p{padding:0 30px 24px 0;color:var(--muted);font-size:14.9px;line-height:1.68}
+.q .a{animation:fadeIn .38s ease both}
+@keyframes fadeIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+
+/* ============ CONTACT ============ */
+#contact{background:linear-gradient(165deg,#0b2118,#123a26 58%,#0b2118);color:var(--cream);
+  padding-block:var(--sec-p) 0;overflow:hidden}
+.cnt-grid{display:grid;grid-template-columns:1fr;gap:clamp(32px,5vw,60px);align-items:start}
+@media(min-width:940px){.cnt-grid{grid-template-columns:1fr 1.04fr;gap:64px}}
+.cnt-info h2{font-size:clamp(27px,6.2vw,50px);letter-spacing:-.035em}
+.cnt-info h2 em{font-family:var(--ff-dis);font-style:italic;font-weight:400;color:var(--lime)}
+.cnt-info>p{margin-top:18px;color:rgba(246,242,232,.68);max-width:46ch;font-size:15px}
+.cnt-rows{margin-top:30px}
+.cnt-row{display:flex;gap:15px;align-items:center;padding:16px 0;border-bottom:1px solid var(--line-d);transition:padding .3s;min-width:0}
+.cnt-row:first-child{border-top:1px solid var(--line-d)}
+.cnt-row:hover{padding-left:7px}
+.cnt-row .ci{width:44px;height:44px;border-radius:13px;background:rgba(198,232,107,.13);color:var(--lime);
+  display:grid;place-items:center;flex-shrink:0}
+.cnt-row .lbl{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(246,242,232,.52);font-weight:800;display:block}
+.cnt-row .val{font-size:clamp(15px,3.2vw,17.5px);font-weight:800;color:#fff;margin-top:2px;letter-spacing:-.015em;
+  display:block;overflow-wrap:anywhere}
+.cnt-row a.val:hover{color:var(--lime)}
+.form-card{background:rgba(246,242,232,.05);border:1px solid var(--line-d);border-radius:var(--r-l);
+  padding:clamp(22px,4vw,40px);backdrop-filter:blur(10px);position:relative;overflow:hidden}
+.form-card h3{font-size:clamp(20px,4vw,24px)}
+.form-card>p{margin-top:9px;font-size:13.8px;color:rgba(246,242,232,.6)}
+.f-grid{display:grid;grid-template-columns:1fr;gap:22px;margin-top:24px}
+@media(min-width:560px){.f-grid{grid-template-columns:1fr 1fr}}
+.f-full{grid-column:1/-1}
+.field{position:relative}
+.field label{position:absolute;left:15px;top:14px;font-size:14.5px;color:rgba(246,242,232,.48);
+  pointer-events:none;transition:.24s;font-weight:500}
+.field input,.field textarea,.field select{width:100%;background:rgba(6,20,13,.42);
+  border:1px solid rgba(246,242,232,.17);border-radius:13px;padding:23px 15px 8px;color:#fff;
+  font-size:15px;outline:none;transition:.26s;font-family:inherit;resize:vertical;min-height:56px}
+.field textarea{min-height:88px}
+.field select{appearance:none;-webkit-appearance:none;cursor:pointer;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23c6e86b' stroke-width='2.2' stroke-linecap='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 14px center;background-size:16px}
+.field select option{background:#0b2118;color:#fff}
+.field input:focus,.field textarea:focus,.field select:focus{border-color:var(--lime);background:rgba(6,20,13,.66)}
+.field input:focus+label,.field textarea:focus+label,.field select:focus+label,
+.field input:not(:placeholder-shown)+label,.field textarea:not(:placeholder-shown)+label,.field.filled label{
+  top:6px;font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--lime);font-weight:800}
+.field.err input,.field.err textarea{border-color:#e2705a}
+.field .em{position:absolute;left:15px;bottom:-18px;font-size:11.2px;color:#f0937f;opacity:0;transition:.25s}
+.field.err .em{opacity:1}
+.consent{display:flex;gap:10px;align-items:flex-start;margin-top:26px;font-size:12.2px;
+  color:rgba(246,242,232,.52);line-height:1.5;cursor:pointer}
+.consent input{width:19px;height:19px;accent-color:var(--lime);flex-shrink:0;margin-top:1px;cursor:pointer}
+.form-card .btn{width:100%;margin-top:22px}
+.form-ok{position:absolute;inset:0;background:linear-gradient(150deg,#123a26,#0b2118);display:none;
+  flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:34px;z-index:3}
+.form-ok.on{display:flex;animation:fadeUp .55s both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.form-ok .okc{width:78px;height:78px;border-radius:50%;background:rgba(198,232,107,.15);color:var(--lime);
+  display:grid;place-items:center;margin-bottom:22px;border:1px solid rgba(198,232,107,.32)}
+.form-ok h3{font-size:clamp(21px,4.6vw,27px)}
+.form-ok p{margin-top:11px;color:rgba(246,242,232,.68);font-size:14.6px;max-width:36ch}
+.cnt-wave{display:block;width:100%;height:clamp(50px,8vw,90px);margin-top:clamp(44px,7vw,70px)}
+
+/* ============ FOOTER ============ */
+footer{background:#06150e;color:rgba(246,242,232,.56);padding:clamp(40px,6vw,60px) 0 calc(26px + var(--safe-b));font-size:14px}
+.f-top{display:grid;grid-template-columns:1fr;gap:32px;padding-bottom:36px;border-bottom:1px solid var(--line-d)}
+@media(min-width:560px){.f-top{grid-template-columns:1fr 1fr}}
+@media(min-width:980px){.f-top{grid-template-columns:1.6fr 1fr 1fr 1.1fr;gap:38px}}
+.f-top h5{color:#fff;font-size:12px;letter-spacing:.17em;text-transform:uppercase;margin:0 0 16px;font-weight:800}
+.f-top ul{display:grid;gap:10px}
+.f-top a:hover{color:var(--lime)}
+.f-top p{font-size:13.8px;line-height:1.6;max-width:36ch}
+.f-bot{display:flex;justify-content:space-between;gap:14px;padding-top:22px;flex-wrap:wrap;font-size:12.4px}
+.socials{display:flex;gap:9px;margin-top:18px}
+.socials a{width:42px;height:42px;border-radius:12px;border:1px solid var(--line-d);display:grid;place-items:center;
+  transition:.26s;color:rgba(246,242,232,.72)}
+.socials a:hover{background:var(--lime);color:#08240f;border-color:var(--lime);transform:translateY(-3px)}
+
+/* ============ FLOAT ============ */
+.float{position:fixed;right:clamp(12px,3vw,22px);bottom:calc(clamp(12px,3vw,22px) + var(--safe-b));z-index:900;
+  display:flex;flex-direction:column;gap:10px;align-items:flex-end}
+.float a{width:54px;height:54px;border-radius:50%;display:grid;place-items:center;box-shadow:var(--sh-m);
+  transition:transform .28s,opacity .28s;color:#fff}
+.float a:hover{transform:scale(1.08) translateY(-2px)}
+.fl-call{background:linear-gradient(140deg,var(--leaf),var(--lime));color:#08240f!important;position:relative}
+.fl-call::before{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid var(--lime);animation:ring 2.8s infinite}
+@keyframes ring{0%{transform:scale(1);opacity:.7}100%{transform:scale(1.5);opacity:0}}
+.fl-ig{background:linear-gradient(140deg,#f09433,#dc2743 50%,#bc1888)}
+.fl-top{background:var(--forest);opacity:0;pointer-events:none;transform:translateY(14px)}
+.fl-top.on{opacity:1;pointer-events:auto;transform:none}
+
+/* ============ REVEAL ============ */
+.rv{opacity:0;transform:translateY(30px);
+  transition:opacity .8s cubic-bezier(.2,.8,.3,1),transform .8s cubic-bezier(.2,.8,.3,1)}
+.rv.in{opacity:1;transform:none}
+.rv-d1{transition-delay:.08s}.rv-d2{transition-delay:.16s}.rv-d3{transition-delay:.24s}
+
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+  html{scroll-behavior:auto}
+  .rv{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+<div id="progress"></div>
+
+<!-- ================= HEADER ================= -->
+<header id="header">
+  <div class="wrap nav">
+    <a href="#hero" class="brand" aria-label="GREEN DESIGN PINSK — на главную">
+      <svg class="mark" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+        <circle cx="24" cy="24" r="23" stroke="rgba(246,242,232,.28)" stroke-width="1.4"/>
+        <path d="M24 39c0-8.2 4.2-14.6 12-17.4C35.6 30.4 31 36 24 39Z" fill="#86d17a"/>
+        <path d="M24 39c0-9.4-3.6-16.4-12-19.4C12.2 29 16.8 35.4 24 39Z" fill="#c6e86b" opacity=".85"/>
+        <path d="M24 41V20" stroke="#f6f2e8" stroke-width="1.8" stroke-linecap="round"/>
+      </svg>
+      <span class="bt"><b>Green Design</b><span>Pinsk</span></span>
+    </a>
+    <nav class="nav-links" aria-label="Основная навигация">
+      <a href="#services">Услуги</a><a href="#why">Подход</a><a href="#portfolio">Проекты</a>
+      <a href="#process">Этапы</a><a href="#pricing">Цены</a><a href="#reviews">Отзывы</a><a href="#faq">FAQ</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="phone-btn" href="tel:+375293468920">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>
+        +375 (29) 346-89-20
+      </a>
+      <a class="btn btn-p btn-sm" href="#contact" style="display:none" id="navCta">Обсудить проект</a>
+      <button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false"><i></i><i></i><i></i></button>
+    </div>
+  </div>
+</header>
+
+<div class="drawer" id="drawer" aria-hidden="true">
+  <a class="dl" href="#services">Услуги</a>
+  <a class="dl" href="#why">Подход</a>
+  <a class="dl" href="#portfolio">Проекты</a>
+  <a class="dl" href="#process">Этапы</a>
+  <a class="dl" href="#pricing">Цены</a>
+  <a class="dl" href="#reviews">Отзывы</a>
+  <a class="dl" href="#faq">FAQ</a>
+  <a class="dl" href="#contact">Контакты</a>
+  <a class="dp" href="tel:+375293468920">+375 (29) 346-89-20</a>
+  <div class="ds">Пинск · работаем по всей Беларуси</div>
+</div>
+
+<!-- ================= HERO ================= -->
+<section id="hero" class="hero">
+  <div class="hero-art" id="heroArt" aria-hidden="true">
+    <svg viewBox="0 0 1440 760" preserveAspectRatio="xMidYMax slice" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="hsky" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#061a11"/><stop offset="52%" stop-color="#0e3323"/><stop offset="100%" stop-color="#1d5136"/>
+        </linearGradient>
+        <radialGradient id="hglow"><stop offset="0%" stop-color="#ffd79a" stop-opacity=".5"/><stop offset="100%" stop-color="#ffb457" stop-opacity="0"/></radialGradient>
+        <radialGradient id="hlamp"><stop offset="0%" stop-color="#ffe1ad" stop-opacity=".85"/><stop offset="100%" stop-color="#ffcf86" stop-opacity="0"/></radialGradient>
+        <linearGradient id="hlawn" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1e5539"/><stop offset="100%" stop-color="#0a2418"/></linearGradient>
+      </defs>
+      <rect width="1440" height="760" fill="url(#hsky)"/>
+      <g fill="#fff">
+        <circle cx="120" cy="80" r="1.4" opacity=".7"/><circle cx="310" cy="150" r="1" opacity=".5"/>
+        <circle cx="470" cy="60" r="1.6" opacity=".65"/><circle cx="620" cy="190" r="1" opacity=".4"/>
+        <circle cx="760" cy="96" r="1.3" opacity=".6"/><circle cx="905" cy="210" r="1" opacity=".45"/>
+        <circle cx="1010" cy="70" r="1.5" opacity=".7"/><circle cx="1230" cy="250" r="1.1" opacity=".5"/>
+        <circle cx="1360" cy="120" r="1.4" opacity=".6"/><circle cx="200" cy="250" r="1" opacity=".4"/>
+        <circle cx="540" cy="290" r="1.2" opacity=".45"/><circle cx="840" cy="300" r="1" opacity=".35"/>
+      </g>
+      <circle cx="1140" cy="152" r="230" fill="url(#hglow)"/>
+      <circle cx="1140" cy="152" r="33" fill="#ffe3b4" opacity=".82"/>
+      <g class="lyr" data-d="0.010"><path d="M0,430 C220,382 380,420 560,396 C760,368 900,414 1080,392 C1240,372 1340,404 1440,386 L1440,760 L0,760 Z" fill="#0d2c1e"/></g>
+      <g class="lyr" data-d="0.020"><path d="M0,472 C200,438 420,486 640,458 C860,430 1060,478 1250,452 C1340,440 1400,458 1440,450 L1440,760 L0,760 Z" fill="#123a27"/></g>
+      <g class="lyr" data-d="0.032">
+        <rect x="880" y="404" width="230" height="98" rx="4" fill="#1b4432"/>
+        <rect x="1060" y="428" width="120" height="74" rx="4" fill="#16392a"/>
+        <path d="M862,404 L995,352 L1128,404 Z" fill="#0f2c20"/>
+        <path d="M1046,428 L1120,398 L1196,428 Z" fill="#0f2c20"/>
+        <rect x="908" y="436" width="46" height="40" rx="3" fill="#ffd79a" opacity=".85"/>
+        <rect x="972" y="436" width="34" height="40" rx="3" fill="#ffd79a" opacity=".6"/>
+        <rect x="1088" y="452" width="40" height="34" rx="3" fill="#ffd79a" opacity=".7"/>
+        <circle cx="931" cy="456" r="66" fill="url(#hlamp)" opacity=".33"/>
+      </g>
+      <g class="lyr" data-d="0.048"><path d="M0,520 C240,486 520,548 780,516 C1020,486 1240,540 1440,512 L1440,760 L0,760 Z" fill="url(#hlawn)"/></g>
+      <g class="lyr" data-d="0.060">
+        <path d="M470,760 C520,690 600,640 700,556 L764,556 C830,640 900,690 980,760 Z" fill="#2b4739" opacity=".9"/>
+        <path d="M470,760 C520,690 600,640 700,556 L764,556 C830,640 900,690 980,760 Z" fill="none" stroke="rgba(198,232,107,.2)" stroke-width="2"/>
+      </g>
+      <g class="lyr" data-d="0.076" fill="#17402d">
+        <g><rect x="115" y="514" width="10" height="42" fill="#0c2318"/><path d="M120,406 L152,478 L88,478 Z"/><path d="M120,446 L160,520 L80,520 Z"/><path d="M120,486 L168,556 L72,556 Z"/></g>
+        <g><rect x="236" y="506" width="8" height="34" fill="#0c2318"/><path d="M240,420 L266,478 L214,478 Z"/><path d="M240,452 L272,512 L208,512 Z"/><path d="M240,484 L278,540 L202,540 Z"/></g>
+        <g><rect x="356" y="528" width="7" height="30" fill="#0c2318"/><path d="M360,462 L382,510 L338,510 Z"/><path d="M360,488 L388,538 L332,538 Z"/><path d="M360,514 L394,558 L326,558 Z"/></g>
+        <g><rect x="1115" y="510" width="9" height="38" fill="#0c2318"/><path d="M1120,414 L1150,482 L1090,482 Z"/><path d="M1120,452 L1158,518 L1082,518 Z"/><path d="M1120,490 L1166,552 L1074,552 Z"/></g>
+        <g><rect x="1246" y="530" width="7" height="32" fill="#0c2318"/><path d="M1250,462 L1274,514 L1226,514 Z"/><path d="M1250,490 L1280,542 L1220,542 Z"/><path d="M1250,516 L1286,562 L1214,562 Z"/></g>
+        <g><rect x="1356" y="500" width="10" height="44" fill="#0c2318"/><path d="M1361,392 L1394,468 L1328,468 Z"/><path d="M1361,434 L1402,510 L1320,510 Z"/><path d="M1361,474 L1410,552 L1312,552 Z"/></g>
+      </g>
+      <g class="lyr" data-d="0.088">
+        <circle cx="560" cy="660" r="46" fill="url(#hlamp)" opacity=".5"/><rect x="558" y="660" width="4" height="42" fill="#0b1f16"/><circle cx="560" cy="660" r="5" fill="#ffe6b8"/>
+        <circle cx="900" cy="668" r="46" fill="url(#hlamp)" opacity=".5"/><rect x="898" y="668" width="4" height="42" fill="#0b1f16"/><circle cx="900" cy="668" r="5" fill="#ffe6b8"/>
+        <circle cx="662" cy="600" r="32" fill="url(#hlamp)" opacity=".42"/><rect x="660.5" y="600" width="3" height="30" fill="#0b1f16"/><circle cx="662" cy="600" r="4" fill="#ffe6b8"/>
+        <circle cx="800" cy="604" r="32" fill="url(#hlamp)" opacity=".42"/><rect x="798.5" y="604" width="3" height="30" fill="#0b1f16"/><circle cx="800" cy="604" r="4" fill="#ffe6b8"/>
+      </g>
+      <g class="lyr" data-d="0.12" fill="#071a11">
+        <path d="M-20,760 C60,660 90,600 70,520 L190,520 C170,620 200,690 250,760 Z"/>
+        <path d="M1460,760 C1380,650 1350,590 1372,506 L1250,506 C1272,610 1240,690 1190,760 Z"/>
+      </g>
+      <g class="lyr" data-d="0.12" stroke="#082015" stroke-width="3" stroke-linecap="round" fill="none" opacity=".92">
+        <path d="M60,760 q-10-30-22-46"/><path d="M60,760 q4-34 8-52"/><path d="M60,760 q16-26 30-40"/>
+        <path d="M300,762 q-10-28-20-42"/><path d="M300,762 q4-32 8-48"/><path d="M300,762 q16-24 28-36"/>
+        <path d="M1120,762 q-10-28-20-42"/><path d="M1120,762 q4-32 8-48"/><path d="M1120,762 q16-24 28-36"/>
+        <path d="M1380,760 q-10-30-22-46"/><path d="M1380,760 q4-34 8-52"/><path d="M1380,760 q16-26 30-40"/>
+      </g>
+    </svg>
+  </div>
+
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <div class="eyebrow rv">Пинск · работаем по всей Беларуси</div>
+        <h1 class="rv rv-d1">Сад, в котором <em>комфортно</em> с&nbsp;первого дня</h1>
+        <p class="hero-sub rv rv-d2">
+          GREEN DESIGN PINSK разрабатывает оригинальный ландшафтный дизайн и проект благоустройства.
+          Индивидуальная концепция, 3D-прогулка по будущему саду, точная смета и озеленение
+          премиум-уровня — от эскиза до последнего светильника.
+        </p>
+        <div class="hero-acts rv rv-d3">
+          <a class="btn btn-p" href="#contact">Увидеть участок в 3D
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="btn btn-g" href="#portfolio">Смотреть проекты</a>
+        </div>
+        <div class="hero-stats rv rv-d3">
+          <div class="st"><b data-count="150" data-suffix="+">150+</b><span>концепций участков</span></div>
+          <div class="st"><b data-count="9" data-suffix=" лет">9 лет</b><span>практики в ландшафте</span></div>
+          <div class="st"><b data-count="100" data-suffix="%">100%</b><span>смета в проекте</span></div>
+          <div class="st"><b data-count="6">6</b><span>областей выездов</span></div>
+        </div>
+      </div>
+
+      <div class="hero-card rv rv-d2">
+        <div class="hd"><span class="dot"></span><p>3D-прогулка по проекту · живой рендер</p></div>
+        <div class="hero-shot" data-scene="hero1"></div>
+        <div class="hero-mini">
+          <div data-scene="m1" role="button" tabindex="0" aria-label="Перейти к проектам"></div>
+          <div data-scene="m2" role="button" tabindex="0" aria-label="Перейти к проектам"></div>
+          <div data-scene="m3" role="button" tabindex="0" aria-label="Перейти к проектам"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-hint"><span>Листайте</span><span class="bar"></span></div>
+</section>
+
+<!-- ================= TICKER ================= -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span>Ландшафтный дизайн</span><span>3D-прогулка по саду</span><span>Озеленение премиум</span>
+    <span>Проект благоустройства</span><span>Освещение участка</span><span>Террасы и мебель</span>
+    <span>Автополив и дренаж</span><span>Дендроплан</span><span>Пинск · вся Беларусь</span>
+    <span>Ландшафтный дизайн</span><span>3D-прогулка по саду</span><span>Озеленение премиум</span>
+    <span>Проект благоустройства</span><span>Освещение участка</span><span>Террасы и мебель</span>
+    <span>Автополив и дренаж</span><span>Дендроплан</span><span>Пинск · вся Беларусь</span>
+  </div>
+</div>
+
+<!-- ================= SERVICES ================= -->
+<section id="services" class="sec">
+  <div class="wrap">
+    <div class="sec-h rv">
+      <div class="eyebrow">Что мы делаем</div>
+      <h2>Все решения — <em>в одном проекте</em></h2>
+      <p>Участок рассматривается как единое пространство, а не набор отдельных элементов: архитектура дома,
+        рельеф, маршруты, приватность, солнце и тень, вода, свет и растения.</p>
+    </div>
+    <div class="svc-grid">
+      <article class="svc rv">
+        <span class="num">01</span>
+        <div class="ico"><svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6M9 10h.01M15 10h.01"/></svg></div>
+        <h3>Ландшафтное проектирование</h3>
+        <p>Генплан, зонирование и полный комплект рабочих чертежей под реализацию любой бригадой.</p>
+        <ul><li>Обмер и фотофиксация участка</li><li>2 варианта планировочной концепции</li><li>Разбивочные и посадочные чертежи</li></ul>
+      </article>
+      <article class="svc rv rv-d1">
+        <span class="num">02</span>
+        <div class="ico"><svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 3 7.5v9L12 21l9-4.5v-9L12 3Z"/><path d="m3 7.5 9 4.5 9-4.5M12 21v-9"/></svg></div>
+        <h3>3D-прогулка по саду</h3>
+        <p>Видео-визуализация будущего участка: проходите по маршрутам до начала земляных работ.</p>
+        <ul><li>Реалистичные ракурсы и сезоны</li><li>Примерка композиций деревьев</li><li>Понятно без чтения чертежей</li></ul>
+      </article>
+      <article class="svc rv rv-d2">
+        <span class="num">03</span>
+        <div class="ico"><svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21v-7"/><path d="M12 14c0-4.4 2.6-8 7-9-.6 5-3 8.4-7 9Z"/><path d="M12 14c0-3.6-2.1-6.6-5.7-7.4.5 4.1 2.4 6.9 5.7 7.4Z"/></svg></div>
+        <h3>Озеленение премиум-уровня</h3>
+        <p>Дендроплан с учётом почвы, инсоляции и климата — растения приживаются и выглядят дорого.</p>
+        <ul><li>Деревья, кустарники, многолетники</li><li>Рулонный и посевной газон</li><li>Ассортиментная ведомость с ценами</li></ul>
+      </article>
+      <article class="svc rv">
+        <span class="num">04</span>
+        <div class="ico"><svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-4 10.5c.8.7 1.3 1.6 1.5 2.5h5c.2-.9.7-1.8 1.5-2.5A6 6 0 0 0 12 3Z"/></svg></div>
+        <h3>Освещение и террасы</h3>
+        <p>Сценарии вечернего света, оформление террас и грамотная расстановка садовой мебели.</p>
+        <ul><li>Функциональный и декоративный свет</li><li>Схема привязки светильников</li><li>Подбор мебели и декора</li></ul>
+      </article>
+      <article class="svc rv rv-d1">
+        <span class="num">05</span>
+        <div class="ico"><svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3s6 6.3 6 10.3A6 6 0 0 1 6 13.3C6 9.3 12 3 12 3Z"/><path d="M9.5 14.5a2.8 2.8 0 0 0 2.5 2.4"/></svg></div>
+        <h3>Инженерные сети</h3>
+        <p>Автополив, дренаж, ливневая канализация и подпорные стенки — всё, что скрыто под газоном.</p>
+        <ul><li>Схема автоматического полива</li><li>Дренаж и отвод воды</li><li>Расчёт всех материалов</li></ul>
+      </article>
+      <article class="svc rv rv-d2">
+        <span class="num">06</span>
+        <div class="ico"><svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11.5 11 13.5 15.5 9"/><path d="M20 12a8 8 0 1 1-3.2-6.4"/><path d="M20 4v5h-5"/></svg></div>
+        <h3>Сопровождение работ</h3>
+        <p>Авторский надзор: контролируем этапы, чтобы результат совпал с визуализацией.</p>
+        <ul><li>Пошаговая инструкция для бригады</li><li>Контроль сметы и объёмов</li><li>Подбор подрядчиков и питомников</li></ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WHY ================= -->
+<section id="why" class="sec dark">
+  <div class="wrap split">
+    <div class="rv">
+      <div class="eyebrow" style="color:var(--leaf)">Наш подход</div>
+      <div class="quote-block">«Красивые картинки из интернета не сэкономят ваш бюджет»</div>
+      <ul class="checklist">
+        <li><span class="ci"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></span>
+          <span><b>Проект — это инструкция, а не картинка</b>
+          <span>Пошаговый план с точным сметированием: понятен каждый этап и каждая позиция.</span></span></li>
+        <li><span class="ci"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></span>
+          <span><b>Никаких дорогих переделок</b>
+          <span>Маршруты, материалы, растения и светильники расставлены заранее — до начала работ.</span></span></li>
+        <li><span class="ci"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></span>
+          <span><b>Растения подобраны под ваш участок</b>
+          <span>Почва, инсоляция, ветер и климат Пинского региона — дендроплан работает, а не «как на фото».</span></span></li>
+        <li><span class="ci"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></span>
+          <span><b>Ваши пожелания + наш опыт</b>
+          <span>Гармонично сочетаем видение заказчика с профессиональными решениями и знаниями.</span></span></li>
+      </ul>
+    </div>
+    <div class="budget-card rv rv-d1">
+      <div class="eyebrow" style="color:var(--leaf);margin-bottom:18px">Пример расчёта · участок 16 соток</div>
+      <div class="bc-row"><span class="lbl">Проектирование и 3D</span><span class="val">1 420 BYN</span></div>
+      <div class="bc-row"><span class="lbl">Инженерные сети: полив, дренаж</span><span class="val">3 180 BYN</span></div>
+      <div class="bc-row"><span class="lbl">Мощение и подпорные стенки</span><span class="val">9 740 BYN</span></div>
+      <div class="bc-row"><span class="lbl">Озеленение и газон</span><span class="val">7 350 BYN</span></div>
+      <div class="bc-row"><span class="lbl">Освещение и терраса</span><span class="val">5 610 BYN</span></div>
+      <div class="bc-total">
+        <div class="lbl">Итого по проекту — без «сюрпризов»</div>
+        <div class="val"><span data-count="27300" data-sep="1">27 300</span> BYN</div>
+        <p>Смета фиксируется в проектной документации. Экономия на переделках при наличии проекта —
+          в среднем до 25% бюджета благоустройства.</p>
+      </div>
+      <a class="btn btn-p" style="width:100%;margin-top:22px" href="#contact">Рассчитать мой участок</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PORTFOLIO ================= -->
+<section id="portfolio" class="sec dark" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-h rv">
+      <div class="eyebrow" style="color:var(--leaf)">Портфолио</div>
+      <h2>Проекты и <em>реализации</em></h2>
+      <p>Каждый участок — индивидуальный сценарий. Выберите категорию, чтобы посмотреть работы студии.</p>
+    </div>
+    <div class="filters rv" id="filters" role="tablist" aria-label="Фильтр проектов">
+      <button type="button" data-k="all" class="on">Все проекты</button>
+      <button type="button" data-k="project">Проект участка</button>
+      <button type="button" data-k="3d">3D-визуализация</button>
+      <button type="button" data-k="green">Озеленение</button>
+      <button type="button" data-k="terrace">Террасы и свет</button>
+      <button type="button" data-k="eng">Инженерия</button>
+    </div>
+    <div class="pf-grid" id="pfGrid">
+      <article class="pf rv" data-cat="project" data-scene="p1" tabindex="0" role="button" aria-label="Дом у сосен — Пинск, 24 сотки">
+        <div class="art"></div>
+        <div class="arw"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></div>
+        <div class="ov"><div class="cat">Проект участка</div><h4>Дом у сосен</h4>
+          <div class="meta"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M20 10.5c0 6-8 12-8 12s-8-6-8-12a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10.3" r="2.6"/></svg>Пинск · 24 сотки</div></div>
+      </article>
+      <article class="pf rv rv-d1" data-cat="terrace" data-scene="p2" tabindex="0" role="button" aria-label="Вечерний сценарий света — Пинск">
+        <div class="art"></div>
+        <div class="arw"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></div>
+        <div class="ov"><div class="cat">Террасы и свет</div><h4>Вечерний сценарий света</h4>
+          <div class="meta"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M20 10.5c0 6-8 12-8 12s-8-6-8-12a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10.3" r="2.6"/></svg>Пинск · освещение</div></div>
+      </article>
+      <article class="pf rv rv-d2" data-cat="3d" data-scene="p3" tabindex="0" role="button" aria-label="3D-прогулка, участок 16 соток">
+        <div class="art"></div>
+        <div class="arw"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></div>
+        <div class="ov"><div class="cat">3D-визуализация</div><h4>3D-прогулка · 16 соток</h4>
+          <div class="meta"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M20 10.5c0 6-8 12-8 12s-8-6-8-12a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10.3" r="2.6"/></svg>Пинский район</div></div>
+      </article>
+      <article class="pf rv" data-cat="green" data-scene="p4" tabindex="0" role="button" aria-label="Дендроплан премиум — Барановичи">
+        <div class="art"></div>
+        <div class="arw"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></div>
+        <div class="ov"><div class="cat">Озеленение</div><h4>Дендроплан премиум</h4>
+          <div class="meta"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M20 10.5c0 6-8 12-8 12s-8-6-8-12a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10.3" r="2.6"/></svg>Барановичи · 30 соток</div></div>
+      </article>
+      <article class="pf rv rv-d1" data-cat="terrace" data-scene="p5" tabindex="0" role="button" aria-label="Терраса с видом на газон — Иваново">
+        <div class="art"></div>
+        <div class="arw"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></div>
+        <div class="ov"><div class="cat">Террасы и свет</div><h4>Терраса с видом на газон</h4>
+          <div class="meta"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M20 10.5c0 6-8 12-8 12s-8-6-8-12a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10.3" r="2.6"/></svg>Иваново · 12 соток</div></div>
+      </article>
+      <article class="pf rv rv-d2" data-cat="project" data-scene="p6" tabindex="0" role="button" aria-label="Входная группа и паркинг — Лунинец">
+        <div class="art"></div>
+        <div class="arw"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></div>
+        <div class="ov"><div class="cat">Проект участка</div><h4>Входная группа и паркинг</h4>
+          <div class="meta"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M20 10.5c0 6-8 12-8 12s-8-6-8-12a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10.3" r="2.6"/></svg>Лунинец · 9 соток</div></div>
+      </article>
+      <article class="pf rv" data-cat="eng" data-scene="p7" tabindex="0" role="button" aria-label="Автополив и дренаж — Брест">
+        <div class="art"></div>
+        <div class="arw"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></div>
+        <div class="ov"><div class="cat">Инженерия</div><h4>Автополив и дренаж</h4>
+          <div class="meta"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M20 10.5c0 6-8 12-8 12s-8-6-8-12a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10.3" r="2.6"/></svg>Брест · 21 сотка</div></div>
+      </article>
+      <article class="pf rv rv-d1" data-cat="terrace" data-scene="p8" tabindex="0" role="button" aria-label="Патио и зона барбекю — Пинск">
+        <div class="art"></div>
+        <div class="arw"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></div>
+        <div class="ov"><div class="cat">Террасы и свет</div><h4>Патио и зона барбекю</h4>
+          <div class="meta"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M20 10.5c0 6-8 12-8 12s-8-6-8-12a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10.3" r="2.6"/></svg>Пинск · 14 соток</div></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROCESS ================= -->
+<section id="process" class="sec">
+  <div class="wrap">
+    <div class="sec-h rv">
+      <div class="eyebrow">Как мы работаем</div>
+      <h2>6 шагов от заявки <em>до готового сада</em></h2>
+      <p>Прозрачный процесс с фиксированными сроками и результатом на каждом этапе.</p>
+    </div>
+    <div class="steps">
+      <div class="step rv"><div class="sn">Шаг 01</div><h3>Заявка и бриф</h3>
+        <p>Обсуждаем задачу, бюджет, стиль и сценарии жизни на участке. Заполняем короткую анкету.</p>
+        <span class="dur">1 день</span></div>
+      <div class="step rv rv-d1"><div class="sn">Шаг 02</div><h3>Выезд и анализ</h3>
+        <p>Замер, фотофиксация, оценка рельефа, почвы, уровня воды, инсоляции и существующих посадок.</p>
+        <span class="dur">1–2 дня</span></div>
+      <div class="step rv rv-d2"><div class="sn">Шаг 03</div><h3>Концепция и зонирование</h3>
+        <p>Два варианта планировки: маршруты, зоны отдыха, хозблок, приватность и видовые точки.</p>
+        <span class="dur">7–10 дней</span></div>
+      <div class="step rv"><div class="sn">Шаг 04</div><h3>3D-визуализация</h3>
+        <p>Фотореалистичные виды и видео-прогулка по будущему саду. Правки — до полного попадания.</p>
+        <span class="dur">10–14 дней</span></div>
+      <div class="step rv rv-d1"><div class="sn">Шаг 05</div><h3>Документация и смета</h3>
+        <p>Дендроплан, разбивочные чертежи, схемы света, полива и дренажа, ведомости материалов.</p>
+        <span class="dur">7–12 дней</span></div>
+      <div class="step rv rv-d2"><div class="sn">Шаг 06</div><h3>Реализация и надзор</h3>
+        <p>Сопровождаем работы, контролируем объёмы и качество посадки, принимаем этапы вместе с вами.</p>
+        <span class="dur">по графику</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PRICING ================= -->
+<section id="pricing" class="sec" style="background:var(--cream-2)">
+  <div class="wrap">
+    <div class="sec-h center rv">
+      <div class="eyebrow">Тарифы</div>
+      <h2>Стоимость <em>проектирования</em></h2>
+      <p>Цена зависит от площади, рельефа и состава документации. Точный расчёт — после короткого брифа, бесплатно.</p>
+    </div>
+    <div class="plans">
+      <div class="plan rv">
+        <div class="pl-name">Базовый</div>
+        <div class="pl-price">от 35 <small>BYN / сотка</small></div>
+        <div class="pl-note">Чтобы понять, каким будет участок</div>
+        <ul class="pl-list">
+          <li>Обмер и анализ участка</li><li>Генеральный план</li><li>2 эскиза зонирования</li>
+          <li>Схема размещения дорожек</li><li>Схема групп освещения</li>
+          <li class="no">Дендроплан и ассортимент</li><li class="no">3D-визуализация</li><li class="no">Схема автополива и дренажа</li>
+        </ul>
+        <a class="btn btn-d" href="#contact">Выбрать Базовый</a>
+      </div>
+      <div class="plan hot rv rv-d1">
+        <span class="badge">Хит</span>
+        <div class="pl-name">Стандарт</div>
+        <div class="pl-price">от 60 <small>BYN / сотка</small></div>
+        <div class="pl-note">Полный проект для стройки и посадки</div>
+        <ul class="pl-list">
+          <li>Всё из пакета «Базовый»</li><li>Дендроплан и ассортиментная ведомость</li>
+          <li>Разбивочные и посадочные чертежи</li><li>3D-виды ключевых зон</li>
+          <li>Ведомость материалов и мощения</li><li>Схема расстановки мебели</li>
+          <li class="no">Видео 3D-прогулка</li><li class="no">Авторский надзор</li>
+        </ul>
+        <a class="btn btn-p" href="#contact">Выбрать Стандарт</a>
+      </div>
+      <div class="plan rv rv-d2">
+        <div class="pl-name">Премиум</div>
+        <div class="pl-price">от 89 <small>BYN / сотка</small></div>
+        <div class="pl-note">Ведём проект до готового сада</div>
+        <ul class="pl-list">
+          <li>Всё из пакета «Стандарт»</li><li>Видео 3D-прогулка по саду</li>
+          <li>Схема автополива и дренажа</li><li>Ливневая канализация, подпорные стенки</li>
+          <li>Полная смета по всем работам</li><li>Подбор питомников и подрядчиков</li>
+          <li>Авторский надзор на объекте</li><li>Сезонные консультации после сдачи</li>
+        </ul>
+        <a class="btn btn-d" href="#contact">Выбрать Премиум</a>
+      </div>
+    </div>
+    <p class="rv" style="text-align:center;margin-top:28px;color:var(--muted);font-size:13.4px">
+      Минимальный объём проекта — 6 соток. Выезд за пределы Пинска и Пинского района рассчитывается индивидуально.
+    </p>
+  </div>
+</section>
+
+<!-- ================= REVIEWS ================= -->
+<section id="reviews" class="sec dark">
+  <div class="wrap">
+    <div class="sec-h rv">
+      <div class="eyebrow" style="color:var(--leaf)">Отзывы</div>
+      <h2>Что говорят <em>заказчики</em></h2>
+    </div>
+    <div class="rev-wrap rv rv-d1">
+      <div class="rev-track" id="revTrack">
+        <div class="rev"><div class="rev-in"><div class="rev-av">А</div><div>
+          <div class="rev-txt">«Заказывали полный проект с 3D-прогулкой. Впервые увидели свой участок „живьём“ ещё до начала работ — это полностью изменило наш подход. Смета совпала с фактом почти до рубля, переделок не было.»</div>
+          <div class="rev-who"><b>Анна и Дмитрий</b><span>Пинск · 24 сотки</span>
+            <span class="stars" aria-label="5 из 5"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8L12 2Z"/></svg><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8L12 2Z"/></svg><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8L12 2Z"/></svg><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8L12 2Z"/></svg><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8L12 2Z"/></svg></span>
+          </div></div></div></div>
+        <div class="rev"><div class="rev-in"><div class="rev-av">С</div><div>
+          <div class="rev-txt">«Отдельное спасибо за дендроплан: растения подбирали под нашу почву и солнце. Прошёл второй сезон — всё прижилось и выглядит дороже, чем я ожидал по бюджету.»</div>
+          <div class="rev-who"><b>Сергей</b><span>Иваново · 12 соток</span>
+            <span class="stars" aria-label="5 из 5"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8L12 2Z"/></svg><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8L12 2Z"/></svg><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8L12 2Z"/></svg><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8L12 2Z"/></svg><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8L12 2Z"/></svg></span>
+          </div></div></div></div>
+        <div class="rev"><div class="rev-in"><div class="rev-av">Е</div><div>
+          <div class="rev-txt">«Работали над зоной террасы и вечерним освещением. Вечером сад выглядит как на визуализации — один в один. Коммуникация быстрая, все правки вносили спокойно и по делу.»</div>
+          <div class="rev-who"><b>Елена</b><span>Пинск · терраса и свет</span>
+            <span class="stars" aria-label="5 из 5"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8L12 2Z"/></svg><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8L12 2Z"/></svg><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8L12 2Z"/></svg><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8L12 2Z"/></svg><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8L12 2Z"/></svg></span>
+          </div></div></div></div>
+        <div class="rev"><div class="rev-in"><div class="rev-av">В</div><div>
+          <div class="rev-txt">«Сложный рельеф, вода близко — предложили дренаж и автополив, всё посчитали заранее. Понравилось, что проект отдали в виде понятной инструкции для нашей бригады.»</div>
+          <div class="rev-who"><b>Виктор и Ольга</b><span>Брест · 21 сотка</span>
+            <span class="stars" aria-label="5 из 5"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8L12 2Z"/></svg><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8L12 2Z"/></svg><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8L12 2Z"/></svg><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8L12 2Z"/></svg><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.3 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8L12 2Z"/></svg></span>
+          </div></div></div></div>
+      </div>
+      <div class="rev-nav">
+        <button type="button" id="revPrev" aria-label="Предыдущий отзыв"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button>
+        <button type="button" id="revNext" aria-label="Следующий отзыв"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button>
+        <div class="dots" id="revDots">
+          <button type="button" data-i="0" class="on" aria-label="Отзыв 1"></button>
+          <button type="button" data-i="1" aria-label="Отзыв 2"></button>
+          <button type="button" data-i="2" aria-label="Отзыв 3"></button>
+          <button type="button" data-i="3" aria-label="Отзыв 4"></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section id="faq" class="sec">
+  <div class="wrap faq-wrap">
+    <div class="sec-h rv" style="margin-bottom:0">
+      <div class="eyebrow">Вопросы</div>
+      <h2>Частые <em>вопросы</em></h2>
+      <p>Не нашли ответ? Напишите в директ Instagram или позвоните — ответим в течение рабочего дня.</p>
+      <a class="btn btn-d btn-sm" style="margin-top:24px" href="#contact">Задать вопрос</a>
+    </div>
+    <div class="faq rv rv-d1" id="faqList">
+      <details class="q" open><summary>Сколько стоит ландшафтный проект участка?</summary>
+        <div class="a"><p>Стоимость зависит от площади, рельефа и состава документации. В Пинске проектирование начинается примерно от 35 BYN за сотку за базовый пакет и до 89 BYN за сотку за премиум с 3D-прогулкой, схемой автополива и полной сметой. Минимальный объём — 6 соток. Точный расчёт делаем бесплатно после короткого брифа.</p></div></details>
+      <details class="q"><summary>Выезжаете ли вы за пределы Пинска?</summary>
+        <div class="a"><p>Да. Работаем по всей Беларуси: Пинск и Пинский район — базовая зона, выезд в другие города рассчитывается индивидуально (транспортные расходы на обмер и авторский надзор). Часть этапов можно провести онлайн по вашим замерам и фотографиям.</p></div></details>
+      <details class="q"><summary>Что именно входит в проект?</summary>
+        <div class="a"><p>Генплан и зонирование, дендроплан с ассортиментной ведомостью, разбивочные и посадочные чертежи, схемы освещения, автополива и дренажа, ведомости материалов и мощения, 3D-виды или видео-прогулка, а также итоговая смета. Состав зависит от выбранного пакета.</p></div></details>
+      <details class="q"><summary>Зачем нужна 3D-визуализация, если есть чертежи?</summary>
+        <div class="a"><p>Чертежи читает бригада, а 3D читаете вы. Визуализация позволяет заранее увидеть маршруты, сочетание растений, дорожек и зон отдыха, понять, где комфортно, а что стоит изменить. Правки на экране бесплатны — переделки на участке стоят дорого.</p></div></details>
+      <details class="q"><summary>Когда лучше начинать проектирование?</summary>
+        <div class="a"><p>Оптимально — осенью или зимой, до начала строительного сезона. Так весной вы выходите на участок уже с полным комплектом документов и сметой, а питомники и подрядчики ещё свободны. Начать можно в любой момент: сроки разработки концепции — около 3–5 недель.</p></div></details>
+      <details class="q"><summary>Вы сами реализуете проект?</summary>
+        <div class="a"><p>Мы занимаемся проектированием, озеленением премиум-уровня, оформлением террас и освещения, а также авторским надзором. Для земляных и строительных работ подбираем проверенных подрядчиков и контролируем соответствие проекту на каждом этапе.</p></div></details>
+      <details class="q"><summary>Как происходит оплата?</summary>
+        <div class="a"><p>Работаем поэтапно: предоплата за концепцию, затем оплата за 3D-визуализацию и рабочую документацию. Все суммы фиксируются в договоре до начала работ, дополнительных счетов по ходу проектирования не появляется.</p></div></details>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section id="contact">
+  <div class="wrap">
+    <div class="cnt-grid">
+      <div class="cnt-info rv">
+        <div class="eyebrow" style="color:var(--leaf)">Контакты</div>
+        <h2>Покажем концепцию <em>вашего участка</em> в 3D</h2>
+        <p>Оставьте заявку — свяжемся в течение рабочего дня, зададим несколько вопросов по участку
+          и предложим оптимальный формат проекта.</p>
+        <div class="cnt-rows">
+          <div class="cnt-row">
+            <span class="ci"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg></span>
+            <span><span class="lbl">Телефон · Viber · Telegram</span><a class="val" href="tel:+375293468920">+375 (29) 346-89-20</a></span>
+          </div>
+          <div class="cnt-row">
+            <span class="ci"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.6" cy="6.4" r="1.1" fill="currentColor" stroke="none"/></svg></span>
+            <span><span class="lbl">Instagram</span><a class="val" href="https://www.instagram.com/green_design_pinsk" target="_blank" rel="noopener">@green_design_pinsk</a></span>
+          </div>
+          <div class="cnt-row">
+            <span class="ci"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10.5c0 6-8 12-8 12s-8-6-8-12a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10.3" r="2.9"/></svg></span>
+            <span><span class="lbl">География</span><span class="val">Пинск · выезд по всей Беларуси</span></span>
+          </div>
+          <div class="cnt-row">
+            <span class="ci"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.2 2"/></svg></span>
+            <span><span class="lbl">Режим работы</span><span class="val">Пн–Сб · 9:00 — 19:00</span></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-card rv rv-d1">
+        <h3>Заявка на проект</h3>
+        <p>Заполните 4 поля — этого достаточно для первого расчёта.</p>
+        <form id="leadForm" novalidate>
+          <div class="f-grid">
+            <div class="field">
+              <input type="text" id="fName" name="name" placeholder=" " autocomplete="name" required>
+              <label for="fName">Ваше имя</label><span class="em">Укажите имя</span>
+            </div>
+            <div class="field">
+              <input type="tel" id="fPhone" name="phone" placeholder=" " autocomplete="tel" inputmode="tel" required>
+              <label for="fPhone">Телефон</label><span class="em">Введите номер</span>
+            </div>
+            <div class="field">
+              <select id="fArea" name="area"><option value="">—</option>
+                <option>до 6 соток</option><option>6–10 соток</option><option>10–20 соток</option>
+                <option>20–40 соток</option><option>более 40 соток</option></select>
+              <label for="fArea">Площадь участка</label>
+            </div>
+            <div class="field">
+              <select id="fTask" name="task"><option value="">—</option>
+                <option>Полный дизайн-проект</option><option>Только 3D-визуализация</option>
+                <option>Озеленение и посадка</option><option>Освещение и терраса</option>
+                <option>Автополив и дренаж</option><option>Нужна консультация</option></select>
+              <label for="fTask">Задача</label>
+            </div>
+            <div class="field f-full">
+              <textarea id="fMsg" name="msg" rows="3" placeholder=" "></textarea>
+              <label for="fMsg">Комментарий (город, сроки, пожелания)</label>
+            </div>
+          </div>
+          <label class="consent" id="consentWrap">
+            <input type="checkbox" id="fAgree" required>
+            <span>Я согласен(а) на обработку персональных данных и получение ответа по указанному номеру телефона.</span>
+          </label>
+          <button class="btn btn-p" type="submit">Отправить заявку
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+        </form>
+        <div class="form-ok" id="formOk" role="status" aria-live="polite">
+          <div class="okc"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></div>
+          <h3>Заявка отправлена</h3>
+          <p>Спасибо! Мы свяжемся с вами в течение рабочего дня и начнём с короткого брифа по участку.</p>
+          <a class="btn btn-g btn-sm" style="margin-top:22px" href="https://www.instagram.com/green_design_pinsk" target="_blank" rel="noopener">Написать в Instagram</a>
+        </div>
+      </div>
+    </div>
+
+    <svg class="cnt-wave" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0,50 C180,10 320,80 520,52 C720,24 880,74 1080,50 C1240,30 1340,58 1440,44 L1440,90 L0,90 Z" fill="#06150e" opacity=".55"/>
+      <path d="M0,62 C200,34 340,86 560,64 C780,42 900,82 1120,62 C1280,48 1360,70 1440,58 L1440,90 L0,90 Z" fill="#06150e"/>
+    </svg>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="wrap">
+    <div class="f-top">
+      <div>
+        <a href="#hero" class="brand" style="margin-bottom:16px">
+          <svg class="mark" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+            <circle cx="24" cy="24" r="23" stroke="rgba(246,242,232,.22)" stroke-width="1.4"/>
+            <path d="M24 39c0-8.2 4.2-14.6 12-17.4C35.6 30.4 31 36 24 39Z" fill="#86d17a"/>
+            <path d="M24 39c0-9.4-3.6-16.4-12-19.4C12.2 29 16.8 35.4 24 39Z" fill="#c6e86b" opacity=".85"/>
+            <path d="M24 41V20" stroke="#f6f2e8" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+          <span class="bt"><b>Green Design</b><span>Pinsk</span></span>
+        </a>
+        <p>Студия ландшафтного дизайна и благоустройства. Оригинальные концепции участков,
+          3D-визуализация, озеленение премиум-уровня.</p>
+        <div class="socials">
+          <a href="https://www.instagram.com/green_design_pinsk" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.6" cy="6.4" r="1.1" fill="currentColor" stroke="none"/></svg></a>
+          <a href="tel:+375293468920" aria-label="Позвонить">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg></a>
+          <a href="#contact" aria-label="Оставить заявку">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21.5 2.5-9.4 19-2.3-7.8-7.8-2.3 19.5-8.9Z"/><path d="m21.5 2.5-9.7 9.4"/></svg></a>
+        </div>
+      </div>
+      <div><h5>Услуги</h5><ul>
+        <li><a href="#services">Ландшафтное проектирование</a></li>
+        <li><a href="#services">3D-прогулка по саду</a></li>
+        <li><a href="#services">Озеленение премиум</a></li>
+        <li><a href="#services">Освещение и террасы</a></li>
+        <li><a href="#services">Автополив и дренаж</a></li>
+        <li><a href="#services">Авторский надзор</a></li></ul></div>
+      <div><h5>Компания</h5><ul>
+        <li><a href="#why">Подход</a></li><li><a href="#portfolio">Проекты</a></li>
+        <li><a href="#process">Этапы работы</a></li><li><a href="#pricing">Цены</a></li>
+        <li><a href="#reviews">Отзывы</a></li><li><a href="#faq">FAQ</a></li></ul></div>
+      <div><h5>Контакты</h5><ul>
+        <li><a href="tel:+375293468920">+375 (29) 346-89-20</a></li>
+        <li><a href="https://www.instagram.com/green_design_pinsk" target="_blank" rel="noopener">@green_design_pinsk</a></li>
+        <li>г. Пинск, Брестская область</li><li>Выезд по всей Беларуси</li><li>Пн–Сб · 9:00 — 19:00</li></ul></div>
+    </div>
+    <div class="f-bot">
+      <span>© <span id="yr">2026</span> GREEN DESIGN PINSK. Все права защищены.</span>
+      <span>Ландшафтный дизайн · Благоустройство · Озеленение</span>
+    </div>
+  </div>
+</footer>
+
+<div class="float">
+  <a class="fl-top" id="toTop" href="#hero" aria-label="Наверх"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m18 15-6-6-6 6"/></svg></a>
+  <a class="fl-ig" href="https://www.instagram.com/green_design_pinsk" target="_blank" rel="noopener" aria-label="Instagram"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.6" cy="6.4" r="1.1" fill="currentColor" stroke="none"/></svg></a>
+  <a class="fl-call" href="tel:+375293468920" aria-label="Позвонить +375 29 346-89-20"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg></a>
+</div>
+
+<noscript><style>.rv{opacity:1!important;transform:none!important}.pf .art{background:linear-gradient(160deg,#2f6b4a,#0d2a1d)}</style></noscript>
+
+<script>
+(function(){
+"use strict";
+try{ document.documentElement.classList.remove('no-js'); }catch(e){}
+
+var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+var finePointer = window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+/* ================== SVG SCENE GENERATOR ================== */
+function rngFrom(seed){var a=seed>>>0;return function(){a|=0;a=a+0x6D2B79F5|0;var t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}
+
+var PAL_DAY=['#3f7a4a','#4d8f52','#2f6b40','#5aa35c','#376b45'];
+var PAL_WARM=['#4a7f45','#6a9c4c','#3a6d3e','#85ab55','#2f5f3a'];
+var PAL_DUSK=['#2b4f3c','#35614a','#1f4030','#3d6b52','#274a38'];
+
+function makeScene(c){
+  var u=c.id, r=rngFrom(c.seed), W=480, H=340, hz=c.horizon||152, P=[];
+  var rnd=function(a,b){return a+(b-a)*r();};
+  var hills=c.hills||['#6f8f78','#5c8266','#48714f'];
+  var lawn=c.lawn||['#6aa75a','#3f7a45'];
+  var pal=c.palette||PAL_DAY;
+  var sunC=c.sunColor||'#ffe6b0', sunP=c.sunPos||[360,72];
+
+  P.push('<defs>'+
+    '<linearGradient id="sk'+u+'" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="'+c.sky[0]+'"/><stop offset="100%" stop-color="'+c.sky[1]+'"/></linearGradient>'+
+    '<linearGradient id="lw'+u+'" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="'+lawn[0]+'"/><stop offset="100%" stop-color="'+lawn[1]+'"/></linearGradient>'+
+    '<radialGradient id="sg'+u+'"><stop offset="0%" stop-color="'+sunC+'" stop-opacity=".7"/><stop offset="100%" stop-color="'+sunC+'" stop-opacity="0"/></radialGradient>'+
+    '<radialGradient id="lm'+u+'"><stop offset="0%" stop-color="#ffe0aa" stop-opacity=".92"/><stop offset="100%" stop-color="#ffcf86" stop-opacity="0"/></radialGradient>'+
+    (c.water?'<linearGradient id="wt'+u+'" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="'+c.water[0]+'"/><stop offset="100%" stop-color="'+c.water[1]+'"/></linearGradient>':'')+
+    '<clipPath id="cp'+u+'"><rect width="'+W+'" height="'+H+'"/></clipPath></defs>');
+  P.push('<g clip-path="url(#cp'+u+')">');
+  P.push('<rect width="'+W+'" height="'+H+'" fill="url(#sk'+u+')"/>');
+
+  if(c.night){
+    for(var si=0;si<30;si++){
+      P.push('<circle cx="'+rnd(0,W).toFixed(0)+'" cy="'+rnd(4,hz-28).toFixed(0)+'" r="'+rnd(.6,1.5).toFixed(1)+'" fill="#fff" opacity="'+rnd(.25,.85).toFixed(2)+'"/>');
+    }
+  }
+  P.push('<circle cx="'+sunP[0]+'" cy="'+sunP[1]+'" r="112" fill="url(#sg'+u+')"/>');
+  P.push('<circle cx="'+sunP[0]+'" cy="'+sunP[1]+'" r="23" fill="'+sunC+'" opacity="'+(c.night?'.75':'.9')+'"/>');
+
+  for(var i=0;i<hills.length;i++){
+    var y=hz-26+i*20, amp=Math.max(8,20-i*4);
+    P.push('<path d="M0,'+y+' C90,'+(y-amp)+' 170,'+(y-amp*.35)+' 250,'+(y-amp*.75)+' S400,'+(y-amp*.2)+' 480,'+(y-amp*.9)+' L480,'+H+' L0,'+H+' Z" fill="'+hills[i]+'"/>');
+  }
+  P.push('<path d="M0,'+(hz+34)+' C120,'+(hz+12)+' 300,'+(hz+52)+' 480,'+(hz+26)+' L480,'+H+' L0,'+H+' Z" fill="url(#lw'+u+')"/>');
+
+  if(c.house){
+    var hs=c.house, hx=hs.x, hw=hs.w, hh=hs.h, hy=hz+(hs.dy||34);
+    P.push('<g><rect x="'+(hx-6)+'" y="'+(hy-4)+'" width="'+(hw+12)+'" height="7" rx="3" fill="rgba(0,0,0,.2)"/>'+
+      '<rect x="'+hx+'" y="'+(hy-hh)+'" width="'+hw+'" height="'+hh+'" rx="2" fill="'+hs.wall+'"/>'+
+      '<rect x="'+(hx+hw*.60)+'" y="'+(hy-hh*.78)+'" width="'+(hw*.46)+'" height="'+(hh*.78)+'" rx="2" fill="'+hs.wall2+'"/>'+
+      '<path d="M'+(hx-9)+' '+(hy-hh)+' L'+(hx+hw*.36)+' '+(hy-hh-28)+' L'+(hx+hw*.62)+' '+(hy-hh)+' Z" fill="'+hs.roof+'"/>'+
+      '<path d="M'+(hx+hw*.55)+' '+(hy-hh*.78)+' L'+(hx+hw*.83)+' '+(hy-hh*.78-22)+' L'+(hx+hw*1.09)+' '+(hy-hh*.78)+' Z" fill="'+hs.roof+'"/>'+
+      '<rect x="'+(hx+hw*.10)+'" y="'+(hy-hh*.66)+'" width="'+(hw*.20)+'" height="'+(hh*.30)+'" rx="2" fill="'+hs.windowColor+'"/>'+
+      '<rect x="'+(hx+hw*.34)+'" y="'+(hy-hh*.66)+'" width="'+(hw*.16)+'" height="'+(hh*.30)+'" rx="2" fill="'+hs.windowColor+'" opacity=".8"/>'+
+      '<rect x="'+(hx+hw*.72)+'" y="'+(hy-hh*.56)+'" width="'+(hw*.18)+'" height="'+(hh*.24)+'" rx="2" fill="'+hs.windowColor+'" opacity=".9"/>'+
+      '</g>');
+  }
+  if(c.terrace){
+    var t=c.terrace;
+    P.push('<g><rect x="'+t.x+'" y="'+t.y+'" width="'+t.w+'" height="'+t.h+'" rx="5" fill="'+t.color+'"/>');
+    for(var k=1;k<6;k++){ P.push('<rect x="'+t.x+'" y="'+(t.y+k*(t.h/6)).toFixed(1)+'" width="'+t.w+'" height="1.1" fill="rgba(0,0,0,.16)"/>'); }
+    P.push('</g>');
+  }
+  if(c.water){
+    var w=c.water;
+    P.push('<ellipse cx="'+w.x+'" cy="'+w.y+'" rx="'+w.rx+'" ry="'+w.ry+'" fill="url(#wt'+u+')" opacity=".92"/>'+
+      '<ellipse cx="'+w.x+'" cy="'+w.y+'" rx="'+w.rx+'" ry="'+w.ry+'" fill="none" stroke="rgba(255,255,255,.2)" stroke-width="1.5"/>');
+  }
+  if(c.path==='solid'){
+    P.push('<path d="M150,'+H+' C176,'+(H*.86)+' 206,'+(H*.72)+' 230,'+(hz+44)+' L268,'+(hz+44)+' C292,'+(H*.72)+' 316,'+(H*.86)+' 344,'+H+' Z" fill="'+c.pathColor+'"/>'+
+      '<path d="M150,'+H+' C176,'+(H*.86)+' 206,'+(H*.72)+' 230,'+(hz+44)+' L268,'+(hz+44)+' C292,'+(H*.72)+' 316,'+(H*.86)+' 344,'+H+' Z" fill="none" stroke="rgba(255,255,255,.13)" stroke-width="1.3"/>');
+  } else if(c.path==='stones'){
+    for(var q=0;q<6;q++){
+      var tt=q/5, cx2=178+tt*122+Math.sin(tt*2.2)*20, cy2=H-14-tt*(H-14-(hz+52)), rw=28-tt*13;
+      P.push('<ellipse cx="'+cx2.toFixed(1)+'" cy="'+cy2.toFixed(1)+'" rx="'+rw.toFixed(1)+'" ry="'+(rw*.34).toFixed(1)+'" fill="'+c.pathColor+'"/>');
+    }
+  }
+
+  function cone(x,yv,h,col){
+    return '<g><rect x="'+(x-h*.035).toFixed(1)+'" y="'+(yv-h*.26).toFixed(1)+'" width="'+(h*.07).toFixed(1)+'" height="'+(h*.26).toFixed(1)+'" fill="#4b3a29"/>'+
+      '<path d="M'+x.toFixed(1)+' '+(yv-h).toFixed(1)+' L'+(x+h*.24).toFixed(1)+' '+(yv-h*.55).toFixed(1)+' L'+(x-h*.24).toFixed(1)+' '+(yv-h*.55).toFixed(1)+' Z" fill="'+col+'"/>'+
+      '<path d="M'+x.toFixed(1)+' '+(yv-h*.72).toFixed(1)+' L'+(x+h*.30).toFixed(1)+' '+(yv-h*.28).toFixed(1)+' L'+(x-h*.30).toFixed(1)+' '+(yv-h*.28).toFixed(1)+' Z" fill="'+col+'"/>'+
+      '<path d="M'+x.toFixed(1)+' '+(yv-h*.48).toFixed(1)+' L'+(x+h*.36).toFixed(1)+' '+(yv-h*.02).toFixed(1)+' L'+(x-h*.36).toFixed(1)+' '+(yv-h*.02).toFixed(1)+' Z" fill="'+col+'"/></g>';
+  }
+  function roundTree(x,yv,h,col){
+    return '<g><rect x="'+(x-h*.045).toFixed(1)+'" y="'+(yv-h*.55).toFixed(1)+'" width="'+(h*.09).toFixed(1)+'" height="'+(h*.55).toFixed(1)+'" rx="2" fill="#4b3a29"/>'+
+      '<circle cx="'+(x-h*.16).toFixed(1)+'" cy="'+(yv-h*.62).toFixed(1)+'" r="'+(h*.24).toFixed(1)+'" fill="'+col+'"/>'+
+      '<circle cx="'+(x+h*.17).toFixed(1)+'" cy="'+(yv-h*.64).toFixed(1)+'" r="'+(h*.23).toFixed(1)+'" fill="'+col+'"/>'+
+      '<circle cx="'+x.toFixed(1)+'" cy="'+(yv-h*.80).toFixed(1)+'" r="'+(h*.27).toFixed(1)+'" fill="'+col+'"/></g>';
+  }
+  function shrub(x,yv,h,col){
+    return '<g><ellipse cx="'+x.toFixed(1)+'" cy="'+(yv-h*.30).toFixed(1)+'" rx="'+(h*.42).toFixed(1)+'" ry="'+(h*.32).toFixed(1)+'" fill="'+col+'"/>'+
+      '<ellipse cx="'+(x-h*.24).toFixed(1)+'" cy="'+(yv-h*.16).toFixed(1)+'" rx="'+(h*.28).toFixed(1)+'" ry="'+(h*.20).toFixed(1)+'" fill="'+col+'"/>'+
+      '<ellipse cx="'+(x+h*.25).toFixed(1)+'" cy="'+(yv-h*.18).toFixed(1)+'" rx="'+(h*.26).toFixed(1)+'" ry="'+(h*.19).toFixed(1)+'" fill="'+col+'"/></g>';
+  }
+  function tuft(x,yv,h,col){
+    return '<g stroke="'+col+'" stroke-width="2" stroke-linecap="round" fill="none">'+
+      '<path d="M'+x.toFixed(0)+' '+yv.toFixed(0)+' q'+(h*.3).toFixed(0)+' '+(-h*.6).toFixed(0)+' '+(h*.5).toFixed(0)+' '+(-h).toFixed(0)+'"/>'+
+      '<path d="M'+x.toFixed(0)+' '+yv.toFixed(0)+' q0 '+(-h*.7).toFixed(0)+' 1 '+(-h*1.1).toFixed(0)+'"/>'+
+      '<path d="M'+x.toFixed(0)+' '+yv.toFixed(0)+' q'+(-h*.3).toFixed(0)+' '+(-h*.6).toFixed(0)+' '+(-h*.5).toFixed(0)+' '+(-h).toFixed(0)+'"/></g>';
+  }
+  function flower(x,yv,h,col){
+    return '<g><path d="M'+x.toFixed(1)+' '+yv.toFixed(1)+' q2 '+(-h*.6).toFixed(1)+' 0 '+(-h).toFixed(1)+'" stroke="#5d7f4a" stroke-width="1.5" fill="none"/>'+
+      '<circle cx="'+x.toFixed(1)+'" cy="'+(yv-h).toFixed(1)+'" r="'+(h*.17).toFixed(1)+'" fill="'+col+'"/></g>';
+  }
+
+  var items=[], mcount=c.trees||8, j;
+  for(j=0;j<mcount;j++){
+    var d=r(), yv=hz+30+d*(H-hz-54), xv=rnd(16,W-16);
+    var hv=rnd(34,56)+d*42;
+    var roll=r();
+    items.push({y:yv,x:xv,h:hv,k:roll<.42?'cone':(roll<.72?'round':'shrub'),c:pal[Math.floor(r()*pal.length)]});
+  }
+  if(c.flowers){
+    var fc=['#e8a3b6','#f2d06b','#eae3d0','#c98fb0'];
+    for(j=0;j<18;j++){ items.push({y:rnd(hz+58,H-8),x:rnd(12,W-12),h:rnd(9,15),k:'flower',c:fc[Math.floor(r()*fc.length)]}); }
+  }
+  items.sort(function(a,b){return a.y-b.y;});
+  for(j=0;j<items.length;j++){
+    var it=items[j];
+    if(it.k==='cone') P.push(cone(it.x,it.y,it.h,it.c));
+    else if(it.k==='round') P.push(roundTree(it.x,it.y,it.h,it.c));
+    else if(it.k==='shrub') P.push(shrub(it.x,it.y,it.h*.62,it.c));
+    else P.push(flower(it.x,it.y,it.h,it.c));
+  }
+  for(j=0;j<12;j++){ P.push(tuft(rnd(0,W),rnd(H-40,H),rnd(10,18),c.tuft||'rgba(28,68,44,.5)')); }
+  if(c.lamps){
+    for(j=0;j<c.lamps.length;j++){
+      var L=c.lamps[j];
+      P.push('<circle cx="'+L[0]+'" cy="'+L[1]+'" r="26" fill="url(#lm'+u+')" opacity=".55"/>'+
+        '<rect x="'+(L[0]-1.2)+'" y="'+L[1]+'" width="2.4" height="'+(L[2]||16)+'" fill="#2a2a26"/>'+
+        '<circle cx="'+L[0]+'" cy="'+L[1]+'" r="3.3" fill="#ffe6b8"/>');
+    }
+  }
+  P.push('</g>');
+  return '<svg viewBox="0 0 '+W+' '+H+'" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">'+P.join('')+'</svg>';
+}
+
+var SCENES={
+  hero1:{seed:2024,horizon:150,sky:['#7fb2d6','#e6d3b0'],sunColor:'#ffe6b0',sunPos:[356,72],
+    hills:['#6f8f78','#5c8266','#48714f'],lawn:['#6aa75a','#3f7a45'],
+    house:{x:190,w:130,h:78,dy:40,wall:'#e8e1d2',wall2:'#d3cab6',roof:'#5a4636',windowColor:'#9fc4d8'},
+    path:'solid',pathColor:'#cfc4ae',water:{x:378,y:268,rx:56,ry:20,c:['#8fb9cd','#5d8ea8']},
+    trees:9,flowers:true,palette:PAL_DAY,lamps:[[128,232,20],[352,236,20]]},
+  m1:{seed:51,horizon:170,sky:['#f0b98d','#f7dcc0'],sunColor:'#ffcf9a',sunPos:[96,70],
+    hills:['#8a7f8a','#6b6f6b'],lawn:['#7ba65c','#4b7a45'],path:'stones',pathColor:'#d8cbb2',
+    trees:6,palette:PAL_WARM},
+  m2:{seed:77,horizon:160,sky:['#16324a','#3c5f74'],sunColor:'#dfe9f2',sunPos:[380,60],night:true,
+    hills:['#123029','#0f2a24'],lawn:['#1c4632','#123324'],
+    house:{x:170,w:120,h:70,dy:42,wall:'#20382f',wall2:'#1a2f27',roof:'#0d1f18',windowColor:'#ffd79a'},
+    trees:6,palette:PAL_DUSK,tuft:'rgba(8,30,20,.6)',lamps:[[96,250,18],[392,254,18]]},
+  m3:{seed:139,horizon:175,sky:['#bcd9e6','#eaf2ee'],sunColor:'#fff2cf',sunPos:[110,64],
+    hills:['#93b39a','#7aa285'],lawn:['#8fbf6a','#5b9350'],
+    water:{x:250,y:272,rx:96,ry:28,c:['#9dc6d6','#6b9cb4']},trees:6,flowers:true,palette:PAL_DAY},
+  p1:{seed:311,horizon:150,sky:['#8fc0dd','#e8d9b8'],sunColor:'#ffeab8',sunPos:[368,70],
+    hills:['#7f9a83','#65866a','#4d7452'],lawn:['#71ab5c','#437f48'],
+    house:{x:186,w:140,h:84,dy:42,wall:'#ece4d4',wall2:'#d6cdb8',roof:'#574434',windowColor:'#a6c8da'},
+    path:'solid',pathColor:'#d5c9b2',trees:10,palette:PAL_DAY,lamps:[[120,238,20],[362,242,20]]},
+  p2:{seed:404,horizon:158,sky:['#0d1f33','#2c4a63'],sunColor:'#e2ecf5',sunPos:[392,58],night:true,
+    hills:['#132f28','#0f2822'],lawn:['#1d4733','#0f2e21'],
+    house:{x:150,w:150,h:80,dy:44,wall:'#243c33',wall2:'#1c312a',roof:'#0c1d16',windowColor:'#ffd79a'},
+    terrace:{x:300,y:214,w:130,h:34,color:'#6b4f36'},path:'stones',pathColor:'#8d8574',
+    trees:8,palette:PAL_DUSK,tuft:'rgba(6,24,16,.6)',lamps:[[96,246,20],[250,252,20],[352,252,18],[404,250,20]]},
+  p3:{seed:517,horizon:146,sky:['#a8cfe0','#f0e6d2'],sunColor:'#fff3d2',sunPos:[104,66],
+    hills:['#8fb0a0','#74a083'],lawn:['#8ec26b','#579550'],
+    house:{x:230,w:126,h:74,dy:40,wall:'#f3ede0',wall2:'#ded5c2',roof:'#7a6149',windowColor:'#b9d6e2'},
+    water:{x:120,y:276,rx:74,ry:24,c:['#a9cfe0','#7ba8c0']},path:'solid',pathColor:'#ded2ba',
+    trees:8,flowers:true,palette:PAL_DAY},
+  p4:{seed:623,horizon:186,sky:['#cfe3ea','#f4ead6'],sunColor:'#fff0c8',sunPos:[392,62],
+    hills:['#9ab79c','#7ea87f'],lawn:['#93c46f','#5f9a52'],trees:14,flowers:true,
+    palette:['#3f7a4a','#4d8f52','#6fae58','#2f6b40','#8ab85f']},
+  p5:{seed:733,horizon:150,sky:['#f2c391','#fbe3c8'],sunColor:'#ffc98d',sunPos:[112,84],
+    hills:['#a08a86','#7d7f6b'],lawn:['#8fb861','#557f43'],
+    house:{x:60,w:120,h:86,dy:46,wall:'#e5dccb',wall2:'#cfc5b1',roof:'#8a5f45',windowColor:'#f7d9a8'},
+    terrace:{x:196,y:224,w:170,h:40,color:'#8a6444'},path:'stones',pathColor:'#cbbfa6',
+    trees:7,palette:PAL_WARM,lamps:[[214,236,18],[350,236,18]]},
+  p6:{seed:842,horizon:140,sky:['#9db9cd','#e3ded0'],sunColor:'#f4e7c4',sunPos:[360,58],
+    hills:['#7f8f86','#657a6a'],lawn:['#6ba356','#3f7a45'],
+    house:{x:250,w:150,h:90,dy:44,wall:'#ddd6c6',wall2:'#c6bda9',roof:'#4f4034',windowColor:'#9fbdcc'},
+    path:'solid',pathColor:'#b9b2a2',trees:8,palette:PAL_DAY},
+  p7:{seed:951,horizon:166,sky:['#8fb6c9','#dfe6dd'],sunColor:'#fff0cc',sunPos:[92,60],
+    hills:['#87a391','#6b9179'],lawn:['#77b05f','#457f48'],
+    water:{x:330,y:264,rx:82,ry:26,c:['#9dc3d4','#6d99b0']},path:'stones',pathColor:'#c3bda9',
+    trees:8,flowers:true,palette:PAL_DAY,lamps:[[110,240,18],[220,246,18]]},
+  p8:{seed:1063,horizon:154,sky:['#20344a','#4b6a7d'],sunColor:'#e6eef6',sunPos:[120,66],night:true,
+    hills:['#14332b','#0f2a24'],lawn:['#204935','#123524'],
+    house:{x:52,w:126,h:76,dy:44,wall:'#22392f',wall2:'#1a2e26',roof:'#0b1c15',windowColor:'#ffcf93'},
+    terrace:{x:196,y:220,w:196,h:44,color:'#5e4530'},
+    water:{x:300,y:300,rx:52,ry:16,c:['#3a5f74','#24414f']},
+    trees:8,palette:PAL_DUSK,tuft:'rgba(6,26,18,.6)',lamps:[[206,232,18],[300,232,18],[386,232,18]]}
+};
+
+/* lazy render scenes */
+function renderScene(el){
+  if(!el || el.dataset.done==='1') return;
+  var key=el.getAttribute('data-scene');
+  var cfg=SCENES[key];
+  if(!cfg) return;
+  el.dataset.done='1';
+  var copy={}; for(var k in cfg){ if(Object.prototype.hasOwnProperty.call(cfg,k)) copy[k]=cfg[k]; }
+  copy.id=key.replace(/[^a-zA-Z0-9]/g,'');
+  try{
+    var target = el.classList.contains('art') ? el : el;
+    target.insertAdjacentHTML('beforeend', makeScene(copy));
+  }catch(err){ /* silent */ }
+}
+(function lazyScenes(){
+  var nodes=[].slice.call(document.querySelectorAll('[data-scene]'));
+  if(!('IntersectionObserver' in window)){ nodes.forEach(renderScene); return; }
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(en.isIntersecting){ renderScene(en.target); io.unobserve(en.target); }
+    });
+  },{rootMargin:'200px 0px'});
+  nodes.forEach(function(n){ io.observe(n); });
+})();
+
+/* ================== REVEAL ================== */
+(function(){
+  var els=[].slice.call(document.querySelectorAll('.rv'));
+  if(!('IntersectionObserver' in window) || reduced){
+    els.forEach(function(e){e.classList.add('in');});
+  }else{
+    var io=new IntersectionObserver(function(en){
+      en.forEach(function(x){ if(x.isIntersecting){ x.target.classList.add('in'); io.unobserve(x.target); } });
+    },{threshold:.1,rootMargin:'0px 0px -50px 0px'});
+    els.forEach(function(e){ io.observe(e); });
+  }
+})();
+
+/* ================== COUNTERS ================== */
+(function(){
+  var els=[].slice.call(document.querySelectorAll('[data-count]'));
+  if(!els.length) return;
+  function fmt(v,sep){ return sep? String(v).replace(/\B(?=(\d{3})+(?!\d))/g,' ') : String(v); }
+  function run(el){
+    var target=parseFloat(el.getAttribute('data-count'));
+    if(isNaN(target)) return;
+    var sfx=el.getAttribute('data-suffix')||'';
+    var sep=el.getAttribute('data-sep')==='1';
+    if(reduced || !window.requestAnimationFrame){ el.textContent=fmt(target,sep)+sfx; return; }
+    var t0=performance.now(), dur=1400;
+    function tick(now){
+      var p=Math.min(1,(now-t0)/dur), e=1-Math.pow(1-p,3), v=Math.round(target*e);
+      el.textContent=fmt(v,sep)+sfx;
+      if(p<1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+  if(!('IntersectionObserver' in window)){ els.forEach(run); return; }
+  var io=new IntersectionObserver(function(en){
+    en.forEach(function(x){ if(x.isIntersecting){ run(x.target); io.unobserve(x.target); } });
+  },{threshold:.5});
+  els.forEach(function(e){ io.observe(e); });
+})();
+
+/* ================== HEADER / PROGRESS / TOP ================== */
+(function(){
+  var hd=document.getElementById('header'), pr=document.getElementById('progress'), tp=document.getElementById('toTop');
+  var navCta=document.getElementById('navCta');
+  if(window.matchMedia && window.matchMedia('(min-width:1240px)').matches && navCta){ navCta.style.display='inline-flex'; }
+  var queued=false;
+  function upd(){
+    queued=false;
+    var y=window.pageYOffset||document.documentElement.scrollTop||0;
+    if(hd) hd.classList.toggle('stuck', y>56);
+    var h=document.documentElement.scrollHeight-window.innerHeight;
+    if(pr) pr.style.width=(h>0?Math.min(100,(y/h*100)):0)+'%';
+    if(tp) tp.classList.toggle('on', y>640);
+  }
+  window.addEventListener('scroll',function(){ if(!queued){ queued=true; requestAnimationFrame(upd); } },{passive:true});
+  window.addEventListener('resize',upd,{passive:true});
+  upd();
+})();
+
+/* ================== HERO PARALLAX + LEAVES ================== */
+(function(){
+  var hero=document.getElementById('hero'); if(!hero) return;
+  var layers=hero.querySelectorAll('.lyr');
+  if(finePointer && !reduced && layers.length){
+    var tx=0,ty=0,cx=0,cy=0,active=true;
+    window.addEventListener('mousemove',function(e){
+      tx=(e.clientX/window.innerWidth-.5); ty=(e.clientY/window.innerHeight-.5);
+    },{passive:true});
+    (function loop(){
+      if(!active) return;
+      cx+=(tx-cx)*.06; cy+=(ty-cy)*.06;
+      for(var i=0;i<layers.length;i++){
+        var d=parseFloat(layers[i].getAttribute('data-d'))||.02;
+        layers[i].style.transform='translate3d('+(-cx*d*820).toFixed(2)+'px,'+(-cy*d*320).toFixed(2)+'px,0)';
+      }
+      requestAnimationFrame(loop);
+    })();
+    document.addEventListener('visibilitychange',function(){ active=!document.hidden; if(active) loop(); });
+  }
+  if(!reduced){
+    var frag=document.createDocumentFragment();
+    for(var i=0;i<9;i++){
+      var d=document.createElement('div');
+      d.className='leaf'; d.setAttribute('aria-hidden','true');
+      var sz=8+Math.random()*13;
+      d.style.left=(Math.random()*100)+'vw';
+      d.style.top='-10vh';
+      d.style.setProperty('--dx',(Math.random()*150-75)+'px');
+      d.style.animation='drift '+(18+Math.random()*16)+'s linear '+(Math.random()*16)+'s infinite';
+      d.innerHTML='<svg width="'+sz.toFixed(0)+'" height="'+sz.toFixed(0)+'" viewBox="0 0 24 24" fill="currentColor"><path d="M12 22C12 12 16 6 22 4c0 10-4 16-10 18Z"/><path d="M12 22C12 13 8 7 2 5c0 9 4 15 10 17Z" opacity=".7"/></svg>';
+      frag.appendChild(d);
+    }
+    hero.appendChild(frag);
+  }
+})();
+
+/* ================== DRAWER ================== */
+(function(){
+  var bg=document.getElementById('burger'), dr=document.getElementById('drawer');
+  if(!bg||!dr) return;
+  function setState(open){
+    dr.classList.toggle('on',open);
+    bg.classList.toggle('on',open);
+    bg.setAttribute('aria-expanded',open?'true':'false');
+    bg.setAttribute('aria-label',open?'Закрыть меню':'Открыть меню');
+    dr.setAttribute('aria-hidden',open?'false':'true');
+    document.body.style.overflow=open?'hidden':'';
+    var links=dr.querySelectorAll('.dl');
+    for(var i=0;i<links.length;i++){ links[i].style.transitionDelay=open?(0.06+i*0.045)+'s':'0s'; }
+  }
+  bg.addEventListener('click',function(){ setState(!dr.classList.contains('on')); });
+  var anchors=dr.querySelectorAll('a');
+  for(var i=0;i<anchors.length;i++){ anchors[i].addEventListener('click',function(){ setState(false); }); }
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') setState(false); });
+  window.addEventListener('resize',function(){ if(window.innerWidth>=1000) setState(false); },{passive:true});
+})();
+
+/* ================== PORTFOLIO FILTER ================== */
+(function(){
+  var fw=document.getElementById('filters'), grid=document.getElementById('pfGrid');
+  if(!fw||!grid) return;
+  fw.addEventListener('click',function(e){
+    var b=e.target.closest? e.target.closest('button') : null;
+    if(!b) return;
+    var btns=fw.querySelectorAll('button');
+    for(var i=0;i<btns.length;i++) btns[i].classList.remove('on');
+    b.classList.add('on');
+    var k=b.getAttribute('data-k');
+    var cards=grid.querySelectorAll('.pf');
+    for(var j=0;j<cards.length;j++){
+      var show=(k==='all'||cards[j].getAttribute('data-cat')===k);
+      cards[j].classList.toggle('hide',!show);
+      if(show && !cards[j].classList.contains('in')){ cards[j].classList.add('in'); renderScene(cards[j].querySelector('.art')); }
+    }
+  });
+  function goContact(){
+    var c=document.getElementById('contact');
+    if(c) c.scrollIntoView({behavior:reduced?'auto':'smooth',block:'start'});
+  }
+  grid.addEventListener('click',function(e){ if(e.target.closest && e.target.closest('.pf')) goContact(); });
+  grid.addEventListener('keydown',function(e){
+    if((e.key==='Enter'||e.key===' ') && e.target.classList && e.target.classList.contains('pf')){ e.preventDefault(); goContact(); }
+  });
+  /* mini previews -> portfolio */
+  var minis=document.querySelectorAll('.hero-mini > div');
+  for(var m=0;m<minis.length;m++){
+    minis[m].addEventListener('click',function(){
+      var p=document.getElementById('portfolio');
+      if(p) p.scrollIntoView({behavior:reduced?'auto':'smooth',block:'start'});
+    });
+    minis[m].addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); this.click(); } });
+  }
+})();
+
+/* ================== REVIEWS SLIDER ================== */
+(function(){
+  var track=document.getElementById('revTrack'); if(!track) return;
+  var slides=track.children.length; if(!slides) return;
+  var dots=document.getElementById('revDots');
+  var idx=0, timer=null;
+  function go(i){
+    idx=((i%slides)+slides)%slides;
+    track.style.transform='translateX(-'+(idx*100)+'%)';
+    if(dots){
+      var ds=dots.querySelectorAll('button');
+      for(var j=0;j<ds.length;j++) ds[j].classList.toggle('on',j===idx);
+    }
+  }
+  function auto(){ if(reduced) return; stop(); timer=setInterval(function(){go(idx+1);},7000); }
+  function stop(){ if(timer){ clearInterval(timer); timer=null; } }
+  var nx=document.getElementById('revNext'), pv=document.getElementById('revPrev');
+  if(nx) nx.addEventListener('click',function(){ go(idx+1); auto(); });
+  if(pv) pv.addEventListener('click',function(){ go(idx-1); auto(); });
+  if(dots) dots.addEventListener('click',function(e){
+    var b=e.target.closest? e.target.closest('button[data-i]') : null;
+    if(!b) return; go(parseInt(b.getAttribute('data-i'),10)||0); auto();
+  });
+  var wrap=track.parentNode, sx=0, sy=0, tracking=false;
+  wrap.addEventListener('touchstart',function(e){ sx=e.touches[0].clientX; sy=e.touches[0].clientY; tracking=true; stop(); },{passive:true});
+  wrap.addEventListener('touchend',function(e){
+    if(!tracking) return; tracking=false;
+    var dx=e.changedTouches[0].clientX-sx, dy=e.changedTouches[0].clientY-sy;
+    if(Math.abs(dx)>44 && Math.abs(dx)>Math.abs(dy)) go(idx+(dx<0?1:-1));
+    auto();
+  },{passive:true});
+  wrap.addEventListener('mouseenter',stop);
+  wrap.addEventListener('mouseleave',auto);
+  document.addEventListener('visibilitychange',function(){ if(document.hidden) stop(); else auto(); });
+  go(0); auto();
+})();
+
+/* ================== FAQ ACCORDION ================== */
+(function(){
+  var list=document.getElementById('faqList'); if(!list) return;
+  list.addEventListener('toggle',function(e){
+    var d=e.target;
+    if(!d.open || !d.classList || !d.classList.contains('q')) return;
+    var all=list.querySelectorAll('details.q');
+    for(var i=0;i<all.length;i++){ if(all[i]!==d) all[i].open=false; }
+  },true);
+})();
+
+/* ================== FORM ================== */
+(function(){
+  var form=document.getElementById('leadForm'), ok=document.getElementById('formOk');
+  if(!form) return;
+  var name=document.getElementById('fName'), phone=document.getElementById('fPhone'),
+      agree=document.getElementById('fAgree'), cw=document.getElementById('consentWrap');
+  var sels=[document.getElementById('fArea'),document.getElementById('fTask')];
+  sels.forEach(function(s){ if(s) s.addEventListener('change',function(){ s.parentElement.classList.toggle('filled',!!s.value); }); });
+  if(phone) phone.addEventListener('input',function(){
+    var v=phone.value.replace(/[^\d+]/g,'');
+    if(v.indexOf('80')===0) v='+375'+v.slice(2);
+    if(v.indexOf('375')===0 && v.charAt(0)!=='+') v='+'+v;
+    phone.value=v;
+  });
+  function mark(el,bad){ if(el&&el.parentElement) el.parentElement.classList.toggle('err',bad); return bad; }
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var err=false;
+    if(mark(name, !name || name.value.trim().length<2)) err=true;
+    var digits=(phone? phone.value.replace(/\D/g,'') : '');
+    if(mark(phone, digits.length<11)) err=true;
+    if(agree && !agree.checked){
+      err=true; agree.focus();
+      if(cw){ cw.style.color='#f0937f'; setTimeout(function(){ cw.style.color=''; },2400); }
+    }
+    if(err) return;
+    form.style.display='none';
+    if(ok) ok.classList.add('on');
+  });
+})();
+
+/* ================== MISC ================== */
+(function(){
+  var y=document.getElementById('yr'); if(y) y.textContent=new Date().getFullYear();
+})();
+})();
+</script>
+</body>
+</html>
