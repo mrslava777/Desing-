@@ -166,16 +166,14 @@ header.stuck{background:rgba(8,24,17,.94);padding:8px 0;box-shadow:0 12px 34px -
 .hero-video:fullscreen .vbtn{width:42px;height:42px}
 .scroll-hint{display:none}
 @media(min-width:900px){
-  #hero{align-items:center;padding-top:calc(130px + env(safe-area-inset-top));padding-bottom:60px}
+  #hero{align-items:center;min-height:0;padding-top:calc(112px + env(safe-area-inset-top));padding-bottom:72px}
   .hero-grid{grid-template-columns:minmax(0,1.04fr) minmax(0,.96fr)}
   .hero-acts .btn{flex:0 0 auto}
   .hero-stats{grid-template-columns:repeat(4,auto);gap:34px;justify-content:start}
   .hero-video{aspect-ratio:auto;height:clamp(420px,68vh,640px);
     width:calc(clamp(420px,68vh,640px) * var(--hero-arn,.5625));margin-inline:auto;
     box-shadow:0 24px 60px -28px rgba(0,0,0,.65)}
-  .scroll-hint{display:flex;position:absolute;bottom:24px;left:50%;transform:translateX(-50%);z-index:5;
-    flex-direction:column;align-items:center;gap:8px;color:rgba(246,242,232,.5);
-    font-size:10px;letter-spacing:.22em;text-transform:uppercase}
+  .scroll-hint{display:none}
   .scroll-hint .bar{width:1px;height:42px;background:linear-gradient(180deg,transparent,var(--leaf));position:relative;overflow:hidden}
   .scroll-hint .bar::after{content:"";position:absolute;top:-20px;left:0;width:1px;height:20px;background:var(--lime);animation:slide 2.4s infinite}
   @keyframes slide{0%{top:-20px}100%{top:44px}}
