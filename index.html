@@ -133,28 +133,46 @@ header.stuck{background:rgba(8,24,17,.94);padding:8px 0;box-shadow:0 12px 34px -
   padding-top:26px;border-top:1px solid var(--line-d)}
 .hero-stats .st b{display:block;font-size:clamp(24px,6.4vw,36px);font-weight:800;letter-spacing:-.035em}
 .hero-stats .st span{font-size:12px;color:rgba(246,242,232,.58);line-height:1.4;display:block;margin-top:3px}
-.hero-card{background:rgba(8,26,18,.56);border:1px solid rgba(246,242,232,.15);border-radius:var(--r-l);
-  padding:16px;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:var(--sh-l)}
-.hero-card .hd{display:flex;align-items:center;gap:10px;margin-bottom:14px}
-.hero-card .dot{width:9px;height:9px;border-radius:50%;background:var(--lime);flex-shrink:0;
-  box-shadow:0 0 0 4px rgba(198,232,107,.2);animation:pulse 2.6s infinite}
-@keyframes pulse{0%,100%{box-shadow:0 0 0 4px rgba(198,232,107,.2)}50%{box-shadow:0 0 0 10px rgba(198,232,107,.03)}}
-.hero-card .hd p{font-size:10.5px;letter-spacing:.15em;text-transform:uppercase;color:rgba(246,242,232,.62);font-weight:800}
+.hero-media{position:relative;min-width:0}
 .hero-shot{border-radius:16px;overflow:hidden;position:relative;aspect-ratio:4/3;
   background:linear-gradient(160deg,#7fb2d6,#4d7f5a 55%,#2f6b40)}
 .hero-shot>svg{width:100%;height:100%;position:absolute;inset:0}
-.hero-mini{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}
-.hero-mini>div{border-radius:11px;overflow:hidden;aspect-ratio:1;border:1px solid rgba(246,242,232,.12);
-  background:linear-gradient(160deg,#5f8f6a,#26463a);cursor:pointer;position:relative;transition:transform .3s}
-.hero-mini>div:hover{transform:translateY(-3px)}
-.hero-mini>div>svg{width:100%;height:100%;position:absolute;inset:0}
+/* ---- hero 3D-video ---- */
+.hero-video{background:#06140e;aspect-ratio:var(--hero-ar,9/16);isolation:isolate}
+.hero-video video{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block;z-index:1;background:transparent}
+.hero-video .vfb{position:absolute;inset:0;z-index:0;opacity:0;transition:opacity .45s ease;pointer-events:none}
+.hero-video .vfb>svg{width:100%;height:100%;position:absolute;inset:0}
+.hero-video.no-video video,.hero-video.no-video .vctl,.hero-video.no-video .vprog{display:none}
+.hero-video.no-video .vfb{opacity:1;z-index:2}
+.hero-video .vctl{position:absolute;right:10px;bottom:12px;z-index:5;display:flex;gap:7px;opacity:.55;
+  transition:opacity .3s ease}
+.hero-video:hover .vctl,.hero-video:focus-within .vctl{opacity:1}
+.vbtn{width:33px;height:33px;border-radius:50%;display:grid;place-items:center;cursor:pointer;
+  background:rgba(6,22,15,.44);border:1px solid rgba(246,242,232,.3);color:#f6f2e8;
+  -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+  transition:background .25s,color .25s,border-color .25s,transform .25s}
+.vbtn:hover,.vbtn:focus-visible{background:var(--lime);color:#0b2118;border-color:transparent;outline:none}
+.vbtn:active{transform:scale(.93)}
+.vbtn svg{width:15px;height:15px;display:block}
+.vbtn .ic-on{display:none}
+.vbtn[aria-pressed="true"] .ic-on{display:block}
+.vbtn[aria-pressed="true"] .ic-off{display:none}
+.vprog{position:absolute;left:0;right:0;bottom:0;height:2px;z-index:5;background:rgba(246,242,232,.16);pointer-events:none}
+.vprog i{display:block;height:100%;width:100%;background:var(--lime);transform:scaleX(0);transform-origin:0 50%;
+  transition:transform .2s linear}
+.hero-video:fullscreen{aspect-ratio:auto;border-radius:0;background:#000}
+.hero-video:fullscreen video{object-fit:contain}
+.hero-video:fullscreen .vctl{right:20px;bottom:26px;opacity:1}
+.hero-video:fullscreen .vbtn{width:42px;height:42px}
 .scroll-hint{display:none}
 @media(min-width:900px){
   #hero{align-items:center;padding-top:calc(130px + env(safe-area-inset-top));padding-bottom:60px}
   .hero-grid{grid-template-columns:minmax(0,1.04fr) minmax(0,.96fr)}
   .hero-acts .btn{flex:0 0 auto}
   .hero-stats{grid-template-columns:repeat(4,auto);gap:34px;justify-content:start}
-  .hero-card{padding:24px}
+  .hero-video{aspect-ratio:auto;height:clamp(420px,68vh,640px);
+    width:calc(clamp(420px,68vh,640px) * var(--hero-arn,.5625));margin-inline:auto;
+    box-shadow:0 24px 60px -28px rgba(0,0,0,.65)}
   .scroll-hint{display:flex;position:absolute;bottom:24px;left:50%;transform:translateX(-50%);z-index:5;
     flex-direction:column;align-items:center;gap:8px;color:rgba(246,242,232,.5);
     font-size:10px;letter-spacing:.22em;text-transform:uppercase}
@@ -594,13 +612,28 @@ footer{background:#06150e;color:rgba(246,242,232,.56);padding:clamp(40px,6vw,60p
         </div>
       </div>
 
-      <div class="hero-card rv rv-d2">
-        <div class="hd"><span class="dot"></span><p>3D-прогулка по проекту · живой рендер</p></div>
-        <div class="hero-shot" data-scene="hero1"></div>
-        <div class="hero-mini">
-          <div data-scene="m1" role="button" tabindex="0" aria-label="Перейти к проектам"></div>
-          <div data-scene="m2" role="button" tabindex="0" aria-label="Перейти к проектам"></div>
-          <div data-scene="m3" role="button" tabindex="0" aria-label="Перейти к проектам"></div>
+      <div class="hero-media rv rv-d2">
+        <div class="hero-shot hero-video" id="heroVideo">
+          <video id="heroVid" muted loop playsinline preload="metadata"
+                 poster="assets/video/3d-walk.jpg"
+                 data-src="assets/video/3d-walk.mp4"
+                 data-src-sm="assets/video/3d-walk-540.mp4"
+                 aria-label="Видео 3D-прогулки по проекту участка, вертикальный ролик"></video>
+          <div class="vfb" data-scene="hero1" aria-hidden="true"></div>
+          <div class="vctl">
+            <button class="vbtn" type="button" id="heroPlay" aria-label="Пауза" aria-pressed="true">
+              <svg class="ic-off" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.2v13.6c0 .8.9 1.3 1.6.9l10.2-6.8c.6-.4.6-1.4 0-1.8L9.6 4.3C8.9 3.9 8 4.4 8 5.2Z"/></svg>
+              <svg class="ic-on" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6.4" y="5" width="4.1" height="14" rx="1.3"/><rect x="13.5" y="5" width="4.1" height="14" rx="1.3"/></svg>
+            </button>
+            <button class="vbtn" type="button" id="heroMute" aria-label="Включить звук" aria-pressed="false">
+              <svg class="ic-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6.5 8.8H3v6.4h3.5L11 19V5Z"/><path d="m16.4 9.6 4 4m0-4-4 4"/></svg>
+              <svg class="ic-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6.5 8.8H3v6.4h3.5L11 19V5Z"/><path d="M15 8.6a4.8 4.8 0 0 1 0 6.8"/><path d="M18.1 6a8.6 8.6 0 0 1 0 12"/></svg>
+            </button>
+            <button class="vbtn" type="button" id="heroFull" aria-label="Развернуть на весь экран">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>
+            </button>
+          </div>
+          <div class="vprog" aria-hidden="true"><i id="heroProg"></i></div>
         </div>
       </div>
     </div>
@@ -1440,15 +1473,6 @@ function renderScene(el){
   grid.addEventListener('keydown',function(e){
     if((e.key==='Enter'||e.key===' ') && e.target.classList && e.target.classList.contains('pf')){ e.preventDefault(); goContact(); }
   });
-  /* mini previews -> portfolio */
-  var minis=document.querySelectorAll('.hero-mini > div');
-  for(var m=0;m<minis.length;m++){
-    minis[m].addEventListener('click',function(){
-      var p=document.getElementById('portfolio');
-      if(p) p.scrollIntoView({behavior:reduced?'auto':'smooth',block:'start'});
-    });
-    minis[m].addEventListener('keydown',function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); this.click(); } });
-  }
 })();
 
 /* ================== REVIEWS SLIDER ================== */
@@ -1528,6 +1552,113 @@ function renderScene(el){
     form.style.display='none';
     if(ok) ok.classList.add('on');
   });
+})();
+
+/* ================== HERO 3D-VIDEO ================== */
+(function(){
+  var wrap=document.getElementById('heroVideo'); if(!wrap) return;
+  var vid=document.getElementById('heroVid'); if(!vid) return;
+  var btnPlay=document.getElementById('heroPlay'),
+      btnMute=document.getElementById('heroMute'),
+      btnFull=document.getElementById('heroFull'),
+      prog=document.getElementById('heroProg');
+  var canAuto=!reduced;
+  var srcBig=vid.getAttribute('data-src'), srcSm=vid.getAttribute('data-src-sm');
+  if(srcBig){
+    var conn=navigator.connection||navigator.mozConnection||navigator.webkitConnection;
+    var small=(window.matchMedia && window.matchMedia('(max-width:760px)').matches) || !!(conn && conn.saveData);
+    vid.src=(small && srcSm) ? srcSm : srcBig;
+  }
+
+  function fail(){ wrap.classList.add('no-video'); }
+  function checkFail(){
+    if(!vid.videoWidth && (vid.networkState===3 || vid.error)) fail();
+  }
+  function syncRatio(){
+    if(!vid.videoWidth || !vid.videoHeight) return;
+    var ar=vid.videoWidth/vid.videoHeight;
+    ar=Math.max(.55,Math.min(1.79,ar));
+    wrap.style.setProperty('--hero-ar', ar.toFixed(3));
+    wrap.style.setProperty('--hero-arn', ar.toFixed(3));
+  }
+  function syncPlay(){
+    var paused=vid.paused;
+    if(btnPlay){
+      btnPlay.setAttribute('aria-pressed', paused?'false':'true');
+      btnPlay.setAttribute('aria-label', paused?'Воспроизвести':'Пауза');
+    }
+  }
+  function syncMute(){
+    var on=!vid.muted && vid.volume>0;
+    if(btnMute){
+      btnMute.setAttribute('aria-pressed', on?'true':'false');
+      btnMute.setAttribute('aria-label', on?'Выключить звук':'Включить звук');
+    }
+  }
+  function syncProg(){
+    if(!prog) return;
+    var d=vid.duration;
+    var p=(d && isFinite(d)) ? Math.min(1, vid.currentTime/d) : 0;
+    prog.style.transform='scaleX('+p.toFixed(4)+')';
+  }
+  function tryPlay(){
+    var pr=vid.play();
+    if(pr && pr.catch) pr.catch(function(){ syncPlay(); });
+  }
+
+  vid.addEventListener('loadedmetadata', function(){ syncRatio(); syncProg(); });
+  vid.addEventListener('error', fail);
+  vid.addEventListener('play', syncPlay);
+  vid.addEventListener('pause', syncPlay);
+  vid.addEventListener('volumechange', syncMute);
+  vid.addEventListener('timeupdate', syncProg);
+  [].forEach.call(vid.querySelectorAll('source'), function(s){
+    s.addEventListener('error', function(){ setTimeout(checkFail,0); });
+  });
+  window.addEventListener('load', checkFail);
+  setTimeout(checkFail, 2500);
+
+  if(btnPlay) btnPlay.addEventListener('click', function(){
+    if(vid.paused) tryPlay(); else vid.pause();
+  });
+  if(btnMute) btnMute.addEventListener('click', function(){
+    vid.muted=!vid.muted;
+    if(!vid.muted && vid.volume===0) vid.volume=1;
+    syncMute();
+  });
+  if(btnFull) btnFull.addEventListener('click', function(){
+    var d=document;
+    if(d.fullscreenElement || d.webkitFullscreenElement){
+      (d.exitFullscreen || d.webkitExitFullscreen).call(d);
+    } else if(wrap.requestFullscreen){
+      wrap.requestFullscreen().catch(function(){});
+    } else if(wrap.webkitRequestFullscreen){
+      wrap.webkitRequestFullscreen();
+    } else if(vid.webkitEnterFullscreen){
+      vid.webkitEnterFullscreen();
+    }
+  });
+  vid.addEventListener('click', function(e){
+    if(e.target.closest('.vctl')) return;
+    if(vid.paused) tryPlay(); else vid.pause();
+  });
+
+  syncPlay(); syncMute();
+
+  if(canAuto){
+    tryPlay();
+    if('IntersectionObserver' in window){
+      new IntersectionObserver(function(en){
+        en.forEach(function(x){
+          if(x.isIntersecting){ tryPlay(); }
+          else if(!vid.paused){ vid.pause(); }
+        });
+      },{threshold:.15}).observe(wrap);
+    }
+    document.addEventListener('visibilitychange', function(){
+      if(document.hidden){ vid.pause(); } else { tryPlay(); }
+    });
+  }
 })();
 
 /* ================== MISC ================== */
